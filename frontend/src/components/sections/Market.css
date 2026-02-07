@@ -1,0 +1,44 @@
+.market {
+  padding: var(--space-2xl) 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.market__header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--space-xl);
+}
+
+.market__metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+.market__metric-card {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.market__metric-number {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.market__metric-label {
+  font-size: var(--font-size-base);
+  color: var(--color-dark);
+  line-height: var(--line-height-normal);
+}
+
+@media (max-width: 768px) {
+  .market {
+    padding: var(--space-xl) 0;
+  }
+
+  .market__metrics {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,72 @@
+:root {
+  /* Colors from rescuenet360.com */
+  --color-primary: #1fc7b6;
+  --color-dark: #1A1D23;
+  --color-accent: #8B8F97;
+  --color-white: #FFFFFF;
+  --color-error: #FF3B30;
+  --color-success: #4CAF50;
+
+  /* Glassmorphism effects */
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-bg-dark: rgba(26, 29, 35, 0.95);
+  --glass-blur: 20px;
+  --glass-border: rgba(255, 255, 255, 0.2);
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 80px;
+  --space-2xl: 120px;
+
+  /* Typography (fluid with clamp) */
+  --font-size-xl: clamp(32px, 5vw, 56px);
+  --font-size-lg: clamp(24px, 4vw, 38px);
+  --font-size-md: clamp(18px, 2.5vw, 28px);
+  --font-size-base: clamp(14px, 1.8vw, 16px);
+  --font-size-sm: 14px;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 800;
+
+  /* Line heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.8;
+
+  /* Letter spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-wide: 0.05em;
+
+  /* Breakpoints (for JS access) */
+  --breakpoint-mobile: 768px;
+  --breakpoint-tablet: 1024px;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 50px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 6px 25px rgba(31, 199, 182, 0.4);
+  --shadow-teal: 0 6px 25px rgba(31, 199, 182, 0.4);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Container widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+}

@@ -1,0 +1,82 @@
+.button {
+  display: inline-block;
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  border-radius: var(--radius-pill);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), background var(--transition-normal);
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button:active {
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Sizes */
+.button--sm {
+  padding: 10px 24px;
+  font-size: var(--font-size-sm);
+}
+
+.button--md {
+  padding: 14px 32px;
+  font-size: var(--font-size-base);
+}
+
+.button--lg {
+  padding: 18px 40px;
+  font-size: var(--font-size-md);
+}
+
+/* Variants */
+.button--primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-teal);
+}
+
+.button--primary:hover {
+  background: #1ab5a4;
+  box-shadow: 0 8px 30px rgba(31, 199, 182, 0.5);
+}
+
+.button--secondary {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  color: var(--color-dark);
+  border: 2px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.button--secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.button--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.button--outline:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .button--lg {
+    padding: 14px 32px;
+  }
+}
