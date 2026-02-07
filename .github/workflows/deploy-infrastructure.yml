@@ -1,0 +1,75 @@
+name: Deploy Infrastructure
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'infrastructure/**'
+  workflow_dispatch:
+
+env:
+  TERRAFORM_VERSION: '1.7.0'
+  WORKING_DIR: infrastructure/environments/prod
+
+jobs:
+  terraform:
+    name: Terraform Plan and Apply
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ${{ env.WORKING_DIR }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TERRAFORM_VERSION }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+        continue-on-error: true
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -out=tfplan -no-color
+        continue-on-error: true
+
+      - name: Terraform Plan Status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve tfplan
+
+      - name: Terraform Output
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        id: output
+        run: |
+          echo "api_endpoint=$(terraform output -raw api_endpoint)" >> $GITHUB_OUTPUT
+          echo "website_url=$(terraform output -raw website_url)" >> $GITHUB_OUTPUT
+
+      - name: Deployment summary
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          echo "✅ Infrastructure deployed successfully!"
+          echo "Website URL: ${{ steps.output.outputs.website_url }}"
+          echo "API Endpoint: ${{ steps.output.outputs.api_endpoint }}"
