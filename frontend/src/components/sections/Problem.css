@@ -34,15 +34,29 @@
   line-height: var(--line-height-normal);
 }
 
-.problem__narrative {
+.problem__list {
   max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  margin: var(--space-xl) auto 0;
+  padding: 0;
+  list-style: none;
 }
 
-.problem__narrative p {
-  font-size: var(--font-size-md);
-  color: var(--color-accent);
+.problem__list-item {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-base);
+  color: var(--color-dark);
+  line-height: var(--line-height-relaxed);
+}
+
+.problem__list-item::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: #dc3545;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
 }
 
 @media (max-width: 768px) {

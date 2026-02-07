@@ -13,8 +13,45 @@
   margin-bottom: var(--space-md);
 }
 
-.team__content p {
-  margin-bottom: var(--space-lg);
+.team__positions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin: var(--space-lg) 0;
+}
+
+.team__position-tag {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+}
+
+.team__priority {
+  margin: var(--space-xl) 0;
+  padding: var(--space-md);
+  background: rgba(31, 199, 182, 0.1);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+.team__priority-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--font-weight-semibold);
+}
+
+.team__priority-role {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-dark);
 }
 
 .team__buttons {
@@ -22,6 +59,7 @@
   gap: var(--space-md);
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: var(--space-lg);
 }
 
 @media (max-width: 768px) {

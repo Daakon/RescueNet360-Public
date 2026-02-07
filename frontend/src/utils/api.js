@@ -12,10 +12,15 @@ export class APIError extends Error {
   }
 }
 
-export const submitWaitlist = async (email, source = 'website') => {
+export const submitWaitlist = async (data, source = 'website') => {
   if (!API_ENDPOINT) {
     throw new APIError('API endpoint not configured', 500);
   }
+
+  // Handle both old format (string) and new format (object)
+  const payload = typeof data === 'string'
+    ? { email: data, source }
+    : { ...data, source };
 
   try {
     const response = await fetch(`${API_ENDPOINT}/waitlist`, {
@@ -23,19 +28,19 @@ export const submitWaitlist = async (email, source = 'website') => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, source }),
+      body: JSON.stringify(payload),
     });
 
-    const data = await response.json();
+    const responseData = await response.json();
 
     if (!response.ok) {
       throw new APIError(
-        data.error || 'Failed to submit waitlist signup',
+        responseData.error || 'Failed to submit waitlist signup',
         response.status
       );
     }
 
-    return data;
+    return responseData;
   } catch (error) {
     if (error instanceof APIError) {
       throw error;

@@ -33,6 +33,13 @@
   line-height: var(--line-height-relaxed);
 }
 
+.founder__signature {
+  font-style: italic;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-dark);
+  margin-top: var(--space-md);
+}
+
 @media (max-width: 768px) {
   .founder {
     padding: var(--space-xl) 0;

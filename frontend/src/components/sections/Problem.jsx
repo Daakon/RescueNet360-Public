@@ -2,9 +2,15 @@ import { Container, Heading, Text, Card } from '../primitives';
 import './Problem.css';
 
 const stats = [
-  { number: '37%', label: 'Longer response times due to poor coordination' },
-  { number: '64%', label: 'Of emergencies lack real-time data access' },
-  { number: '$2.1B', label: 'Lost annually to inefficient emergency response' },
+  { number: '607K', label: 'animals euthanized annually' },
+  { number: '60%', label: 'foster applications sit unprocessed' },
+  { number: '40%', label: 'emergency placements fail' },
+];
+
+const problems = [
+  'Shelter coordination gaps exist across 20-mile distances',
+  'Overwhelmed coordinators manage spreadsheets manually',
+  'Time-critical resource discovery fails during disasters',
 ];
 
 export const Problem = () => {
@@ -12,10 +18,7 @@ export const Problem = () => {
     <section id="problem" className="problem">
       <Container>
         <div className="problem__header">
-          <Heading level={2}>The Problem We're Solving</Heading>
-          <Text size="md">
-            Emergency response systems are fragmented, outdated, and cost lives.
-          </Text>
+          <Heading level={2}>The Problem – Deadly Isolation</Heading>
         </div>
 
         <div className="problem__stats">
@@ -27,13 +30,13 @@ export const Problem = () => {
           ))}
         </div>
 
-        <div className="problem__narrative">
-          <Text>
-            First responders struggle with disconnected systems, incomplete information,
-            and delayed communication. Lives are lost because critical data doesn't reach
-            the right people at the right time.
-          </Text>
-        </div>
+        <ul className="problem__list">
+          {problems.map((problem, index) => (
+            <li key={index} className="problem__list-item">
+              {problem}
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   );

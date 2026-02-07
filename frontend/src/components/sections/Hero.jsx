@@ -6,23 +6,34 @@ export const Hero = () => {
     document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const scrollToProblem = () => {
+    document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="hero">
       <Container>
         <div className="hero__content">
           <Heading level={1} className="hero__title">
-            Emergency Response Reimagined
+            The Operating System for Animal Welfare
           </Heading>
-          <Text className="hero__subtitle">
-            RescueNet360 connects first responders with critical information in real-time,
-            saving lives through intelligent coordination and data-driven decision making.
-          </Text>
+          <div className="hero__subtitle-wrapper">
+            <Text className="hero__subtitle-large">
+              Powered by a National AI-Driven Pet Directory
+            </Text>
+            <Text className="hero__subtitle">
+              Breaking down silos to create the first coordinated network for shelters, rescues, fosters, and emergency responders.
+            </Text>
+          </div>
+          <div className="hero__stat">
+            <span className="hero__stat-number">607,000</span> animals are euthanized in the U.S. annually
+          </div>
           <div className="hero__buttons">
             <Button variant="primary" size="lg" onClick={scrollToWaitlist}>
-              Join Waitlist
+              Join the Waitlist
             </Button>
-            <Button variant="secondary" size="lg">
-              Learn More
+            <Button variant="secondary" size="lg" onClick={scrollToProblem}>
+              See the Problem
             </Button>
           </div>
         </div>

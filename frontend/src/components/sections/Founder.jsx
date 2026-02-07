@@ -8,28 +8,30 @@ export const Founder = () => {
         <div className="founder__grid">
           <div className="founder__image-wrapper">
             <img
-              src="/images/team/founder-photo.jpg"
-              alt="Founder"
+              src="/images/team/misty-harrison.jpg"
+              alt="Misty Harrison, Founder"
               className="founder__image"
               loading="lazy"
             />
           </div>
           <div className="founder__content">
-            <Heading level={2}>Built by First Responders, For First Responders</Heading>
+            <Heading level={2}>Why This Became My Mission</Heading>
             <Text>
-              RescueNet360 was founded by veteran firefighters and paramedics who experienced
-              the frustration of outdated systems firsthand. After losing colleagues to preventable
-              delays, we knew there had to be a better way.
+              When my dog went missing, I experienced the chaos firsthand. Shelters across town
+              had no idea what each other had. Foster networks operated in isolation. Emergency
+              responders couldn't access critical animal data during disasters.
             </Text>
             <Text>
-              We've spent years building relationships with emergency departments across the country,
-              understanding their pain points, and developing a solution that actually works in the
-              field—not just in theory.
+              With two decades of enterprise experience at Microsoft and ADP, and having built
+              AutoRealty (a platform that brought transparency to car buying), I knew this problem
+              could be solved with the right technology.
             </Text>
             <Text>
-              Today, we're backed by leading emergency response organizations and technology partners
-              who share our vision of saving lives through better coordination.
+              RescueNet360 isn't just software—it's a mission to build the first truly coordinated
+              system that gives every shelter, rescue, and foster network the tools they need to
+              save more lives.
             </Text>
+            <p className="founder__signature">— Misty Harrison, Founder</p>
           </div>
         </div>
       </Container>

@@ -6,13 +6,13 @@ export const useWaitlistSubmit = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState(null);
 
-  const submit = async (email, source = 'website') => {
+  const submit = async (data, source = 'website') => {
     setIsLoading(true);
     setError(null);
     setIsSuccess(false);
 
     try {
-      await submitWaitlist(email, source);
+      await submitWaitlist(data, source);
       setIsSuccess(true);
       return { success: true };
     } catch (err) {

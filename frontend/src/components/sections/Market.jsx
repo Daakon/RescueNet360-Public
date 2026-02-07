@@ -2,9 +2,9 @@ import { Container, Heading, Text, Card } from '../primitives';
 import './Market.css';
 
 const marketData = [
-  { metric: '$180B', label: 'Global Emergency Services Market' },
-  { metric: '350K+', label: 'Emergency Departments in US' },
-  { metric: '1.2M', label: 'First Responders Nationwide' },
+  { metric: '$3B+', label: 'annual rescue/transport/medical spend' },
+  { metric: '14,000+', label: 'active shelters & rescues (U.S.)' },
+  { metric: '85M+', label: 'household pets' },
 ];
 
 export const Market = () => {
@@ -12,10 +12,7 @@ export const Market = () => {
     <section id="market" className="market">
       <Container>
         <div className="market__header">
-          <Heading level={2}>Massive Market Opportunity</Heading>
-          <Text size="md">
-            Emergency response is a critical infrastructure need affecting millions daily.
-          </Text>
+          <Heading level={2}>An Untapped $3 Billion Market</Heading>
         </div>
 
         <div className="market__metrics">

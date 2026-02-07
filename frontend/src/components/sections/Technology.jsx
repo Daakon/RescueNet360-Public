@@ -1,18 +1,31 @@
 import { Container, Heading, Text, Card } from '../primitives';
 import './Technology.css';
 
+const patents = [
+  { number: '74+', label: 'patent claims filed' },
+  { number: '2,000+', label: 'screens designed' },
+];
+
 const techFeatures = [
   {
-    title: 'Cloud-Native Architecture',
-    description: '99.99% uptime with auto-scaling infrastructure that handles any emergency volume.',
+    title: 'Biometric Pet ID System',
+    description: 'AI-powered facial recognition and nose-print matching to reunite lost pets with their families instantly.',
   },
   {
-    title: 'Edge Computing',
-    description: 'Critical data processing at the edge for millisecond response times when it matters most.',
+    title: 'FIDO Alert Network',
+    description: 'Real-time missing pet alerts that notify shelters, rescues, and volunteers within a customizable radius.',
   },
   {
-    title: 'AI/ML Integration',
-    description: 'Advanced algorithms that learn from every incident to improve response strategies.',
+    title: 'Foster & Rescue Management',
+    description: 'Streamlined application processing, automated matching, and coordination tools that reduce placement time from weeks to days.',
+  },
+  {
+    title: 'Disaster Response Command',
+    description: 'Emergency mode activates during natural disasters, enabling rapid cross-state evacuations and emergency foster placements.',
+  },
+  {
+    title: 'Animal Abuser Registry',
+    description: 'Nationwide database to prevent known abusers from adopting, with automated background checks and cross-referencing.',
   },
 ];
 
@@ -21,10 +34,16 @@ export const Technology = () => {
     <section id="technology" className="technology">
       <Container>
         <div className="technology__header">
-          <Heading level={2}>Built on Cutting-Edge Technology</Heading>
-          <Text size="md">
-            Enterprise-grade infrastructure designed for mission-critical operations.
-          </Text>
+          <Heading level={2}>Core Technologies</Heading>
+        </div>
+
+        <div className="technology__patents">
+          {patents.map((patent, index) => (
+            <div key={index} className="technology__patent-item">
+              <div className="technology__patent-number">{patent.number}</div>
+              <div className="technology__patent-label">{patent.label}</div>
+            </div>
+          ))}
         </div>
 
         <div className="technology__features">

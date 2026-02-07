@@ -6,7 +6,32 @@
 .technology__header {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto var(--space-xl);
+  margin: 0 auto var(--space-md);
+}
+
+.technology__patents {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.technology__patent-item {
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.technology__patent-number {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.technology__patent-label {
+  font-size: var(--font-size-base);
+  color: var(--color-accent);
 }
 
 .technology__features {

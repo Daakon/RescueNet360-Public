@@ -1,10 +1,23 @@
+import { useState } from 'react';
 import { Container, Heading, Text, Button } from '../primitives';
 import { FormInput } from './FormInput';
 import { useFormValidation } from '../../hooks/useFormValidation';
 import { useWaitlistSubmit } from '../../hooks/useWaitlistSubmit';
 import './WaitlistForm.css';
 
+const roleOptions = [
+  'Shelter',
+  'Rescue',
+  'Foster',
+  'Volunteer',
+  'Vet/Clinic',
+  'Investor/Partner',
+  'Pet Owner',
+];
+
 export const WaitlistForm = () => {
+  const [role, setRole] = useState('');
+  const [agreeToUpdates, setAgreeToUpdates] = useState(false);
   const email = useFormValidation('');
   const { submit, isLoading, isSuccess, error: submitError } = useWaitlistSubmit();
 
@@ -13,15 +26,17 @@ export const WaitlistForm = () => {
 
     // Validate email
     const isValid = email.validate();
-    if (!isValid) {
+    if (!isValid || !role) {
       return;
     }
 
     // Submit to API
-    const result = await submit(email.value);
+    const result = await submit({ email: email.value, role, agreeToUpdates });
 
     if (result.success) {
       email.reset();
+      setRole('');
+      setAgreeToUpdates(false);
     }
   };
 
@@ -47,6 +62,24 @@ export const WaitlistForm = () => {
           ) : (
             <form className="waitlist-form__form" onSubmit={handleSubmit}>
               <div className="waitlist-form__fields">
+                <div className="form-input">
+                  <label className="form-input__label">I am...</label>
+                  <select
+                    className="form-input__field"
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                    disabled={isLoading}
+                    required
+                  >
+                    <option value="">Select your role</option>
+                    {roleOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
                 <FormInput
                   type="email"
                   placeholder="your.email@example.com"
@@ -59,6 +92,18 @@ export const WaitlistForm = () => {
                   disabled={isLoading}
                   required
                 />
+
+                <div className="waitlist-form__checkbox">
+                  <label className="waitlist-form__checkbox-label">
+                    <input
+                      type="checkbox"
+                      checked={agreeToUpdates}
+                      onChange={(e) => setAgreeToUpdates(e.target.checked)}
+                      disabled={isLoading}
+                    />
+                    <span>I agree to receive RescueNet360 updates and news</span>
+                  </label>
+                </div>
               </div>
 
               {submitError && (

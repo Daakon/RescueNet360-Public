@@ -3,28 +3,16 @@ import './Solution.css';
 
 const features = [
   {
-    title: 'Real-Time Coordination',
-    description: 'Instant communication and resource allocation across all emergency services.',
+    title: 'Live Capacity Dashboard',
+    description: 'Real-time visibility into shelter space, foster availability, and resource allocation across your entire network.',
   },
   {
-    title: 'Intelligent Routing',
-    description: 'AI-powered dispatch that factors in traffic, weather, and resource availability.',
+    title: 'Network Effect',
+    description: 'The more organizations that join, the more powerful the platform becomes—creating a nationwide safety net for animals.',
   },
   {
-    title: 'Unified Dashboard',
-    description: 'Single view of all incidents, resources, and critical information for command centers.',
-  },
-  {
-    title: 'Mobile-First Design',
-    description: 'Access critical data from any device, optimized for use in the field.',
-  },
-  {
-    title: 'Predictive Analytics',
-    description: 'Machine learning models that anticipate needs and optimize resource deployment.',
-  },
-  {
-    title: 'Secure Integration',
-    description: 'HIPAA-compliant platform that integrates with existing CAD and RMS systems.',
+    title: 'Disaster Response Mode',
+    description: 'Instant coordination for emergency placements during hurricanes, wildfires, and other crises when every minute counts.',
   },
 ];
 
@@ -33,10 +21,7 @@ export const Solution = () => {
     <section id="solution" className="solution">
       <Container>
         <div className="solution__header">
-          <Heading level={2}>Our Solution</Heading>
-          <Text size="md">
-            A comprehensive platform that brings emergency response into the 21st century.
-          </Text>
+          <Heading level={2}>The Solution – The First Coordination Platform</Heading>
         </div>
 
         <div className="solution__features">
