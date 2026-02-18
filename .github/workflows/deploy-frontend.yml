@@ -33,8 +33,6 @@ jobs:
 
       - name: Build frontend
         working-directory: frontend
-        env:
-          VITE_API_ENDPOINT: ${{ secrets.API_ENDPOINT }}
         run: npm run build
 
       - name: Configure AWS credentials

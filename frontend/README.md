@@ -26,7 +26,7 @@ npm run lint
 Create a `.env.local` file:
 
 ```
-VITE_API_ENDPOINT=https://your-api-gateway-url.execute-api.us-east-1.amazonaws.com
+VITE_API_ENDPOINT=https://api.rescuenet360.com
 ```
 
 ## Project Structure

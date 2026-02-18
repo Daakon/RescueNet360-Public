@@ -72,6 +72,7 @@ module "frontend_hosting" {
 
 ## SPA Routing
 
+- CloudFront Function rewrites non-file paths to `/index.html`
 - 404/403 errors redirect to `/index.html`
 - Supports client-side routing (React Router)
 

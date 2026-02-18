@@ -1,6 +1,17 @@
 # Waitlist API Module
 # API Gateway HTTP API + Lambda + DynamoDB for waitlist submissions
 
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+    archive = {
+      source = "hashicorp/archive"
+    }
+  }
+}
+
 locals {
   function_name = "${var.project_name}-${var.environment}-waitlist"
   table_name    = "${var.project_name}-${var.environment}-waitlist"
@@ -119,8 +130,6 @@ resource "aws_lambda_function" "waitlist" {
       TABLE_NAME = aws_dynamodb_table.waitlist.name
     }
   }
-
-  reserved_concurrent_executions = 10 # Cost control
 
   depends_on = [
     aws_cloudwatch_log_group.lambda,

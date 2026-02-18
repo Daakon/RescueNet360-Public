@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { submitWaitlist, APIError } from '../utils/api';
+import { submitWaitlist } from '../utils/api';
 
 export const useWaitlistSubmit = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,9 +16,7 @@ export const useWaitlistSubmit = () => {
       setIsSuccess(true);
       return { success: true };
     } catch (err) {
-      const errorMessage = err instanceof APIError
-        ? err.message
-        : 'An unexpected error occurred. Please try again.';
+      const errorMessage = err?.message || 'An unexpected error occurred. Please try again.';
       setError(errorMessage);
       return { success: false, error: errorMessage };
     } finally {

@@ -21,7 +21,6 @@ Automated CI/CD pipelines for the RescueNet360 marketing site.
 - `AWS_SECRET_ACCESS_KEY` - AWS secret key
 - `S3_BUCKET` - S3 bucket name
 - `CLOUDFRONT_DISTRIBUTION_ID` - CloudFront distribution ID
-- `API_ENDPOINT` - API Gateway endpoint URL
 
 ### Deploy Infrastructure (`deploy-infrastructure.yml`)
 
@@ -46,7 +45,7 @@ Automated CI/CD pipelines for the RescueNet360 marketing site.
 ### Get Values from Terraform
 
 ```bash
-cd infrastructure/environments/prod
+cd infrastructure/environments/prod-866607866116
 terraform output
 ```
 
@@ -58,7 +57,6 @@ terraform output
 | `AWS_SECRET_ACCESS_KEY` | AWS secret key | AWS IAM console |
 | `S3_BUCKET` | S3 bucket name | `terraform output s3_bucket_name` |
 | `CLOUDFRONT_DISTRIBUTION_ID` | CloudFront distribution ID | `terraform output cloudfront_distribution_id` |
-| `API_ENDPOINT` | API Gateway endpoint | `terraform output api_endpoint` |
 
 ## Manual Deployment
 

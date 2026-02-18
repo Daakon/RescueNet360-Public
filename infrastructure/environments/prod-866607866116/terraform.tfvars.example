@@ -1,0 +1,12 @@
+# Copy this file to terraform.tfvars and update values
+# terraform.tfvars is gitignored for security
+
+aws_region   = "us-east-1"
+environment  = "prod"
+project_name = "rescuenet360-marketing-866607866116"
+
+# Custom Domain (optional)
+# Set enable_custom_domain = true when ready to use custom domain
+enable_custom_domain = false
+custom_domain        = "" # e.g., "rescuenet360.com"
+route53_zone_id      = "" # Optional: Route53 hosted zone ID

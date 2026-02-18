@@ -10,7 +10,7 @@ on:
 
 env:
   TERRAFORM_VERSION: '1.7.0'
-  WORKING_DIR: infrastructure/environments/prod
+  WORKING_DIR: infrastructure/environments/prod-866607866116
 
 jobs:
   terraform:
@@ -64,7 +64,6 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         id: output
         run: |
-          echo "api_endpoint=$(terraform output -raw api_endpoint)" >> $GITHUB_OUTPUT
           echo "website_url=$(terraform output -raw website_url)" >> $GITHUB_OUTPUT
 
       - name: Deployment summary
@@ -72,4 +71,3 @@ jobs:
         run: |
           echo "✅ Infrastructure deployed successfully!"
           echo "Website URL: ${{ steps.output.outputs.website_url }}"
-          echo "API Endpoint: ${{ steps.output.outputs.api_endpoint }}"

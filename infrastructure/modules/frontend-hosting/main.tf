@@ -1,8 +1,47 @@
 # Frontend Hosting Module
 # S3 + CloudFront + OAC for static site hosting
 
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      configuration_aliases = [aws.us_east_1]
+    }
+  }
+}
+
 locals {
   bucket_name = "${var.project_name}-${var.environment}-frontend"
+}
+
+# CloudFront Function for SPA routing (rewrite non-file paths to index.html)
+resource "aws_cloudfront_function" "spa_rewrite" {
+  name    = "${var.project_name}-${var.environment}-spa-rewrite"
+  runtime = "cloudfront-js-1.0"
+  comment = "Rewrite non-file requests to /index.html for SPA routing"
+  publish = true
+
+  code = <<-EOT
+function handler(event) {
+  var request = event.request;
+  var uri = request.uri || "/";
+
+  // Skip known asset paths and any URI that looks like a file.
+  if (uri.startsWith("/assets/")) {
+    return request;
+  }
+  if (uri.startsWith("/api/")) {
+    return request;
+  }
+  var lastSegment = uri.substring(uri.lastIndexOf("/") + 1);
+  if (lastSegment.indexOf(".") !== -1) {
+    return request;
+  }
+
+  request.uri = "/index.html";
+  return request;
+}
+EOT
 }
 
 # S3 Bucket for static site
@@ -42,6 +81,9 @@ resource "aws_s3_bucket_lifecycle_configuration" "frontend" {
   rule {
     id     = "delete-old-versions"
     status = "Enabled"
+
+    # Apply lifecycle rule to all objects in the bucket.
+    filter {}
 
     noncurrent_version_expiration {
       noncurrent_days = 30
@@ -91,6 +133,11 @@ resource "aws_cloudfront_distribution" "frontend" {
     default_ttl            = 300    # 5 minutes
     max_ttl                = 31536000 # 1 year
     compress               = true
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.spa_rewrite.arn
+    }
   }
 
   # Cache behavior for assets (long cache)
@@ -163,12 +210,7 @@ resource "aws_cloudfront_distribution" "frontend" {
     minimum_protocol_version       = "TLSv1.2_2021"
   }
 
-  dynamic "aliases" {
-    for_each = var.enable_custom_domain && var.custom_domain != "" ? [var.custom_domain] : []
-    content {
-      aliases = [aliases.value]
-    }
-  }
+  aliases = var.enable_custom_domain && var.custom_domain != "" ? [var.custom_domain] : []
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-cdn"

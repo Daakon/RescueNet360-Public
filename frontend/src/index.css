@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0f141a;
+  --muted: #6b7a8c;
+  --soft: #f6f7fb;
+  --white: #fff;
+  --teal: #1fc7b6;
+  --pink: #F58F7C;
+  --card: #ffffff;
+  --dark: #0B0F14;
+  --shadow: 0 10px 30px rgba(16, 22, 35, .14);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* wrappers */
+.wrap {
+  @apply max-w-[1140px] mx-auto px-5;
+}
+
+.section {
+  @apply py-20;
+}
+
+.section--tight {
+  @apply py-[52px];
+}
+
+/* grid helpers - mapped to Tailwind in HTML, but keeping for compatibility if needed */
+.grid-gap {
+  @apply gap-6;
+}

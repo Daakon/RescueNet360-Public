@@ -4,9 +4,6 @@ export const BREAKPOINTS = {
   tablet: 1024,
 };
 
-// API Configuration
-export const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT || '';
-
 // Colors (matching CSS variables)
 export const COLORS = {
   primary: '#1fc7b6',

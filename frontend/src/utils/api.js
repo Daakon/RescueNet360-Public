@@ -1,55 +1,61 @@
-import { API_ENDPOINT } from './constants';
+const DEFAULT_API_BASE_URL = 'https://api.rescuenet360.com';
 
-/**
- * API client for waitlist submissions
- */
+const getApiBaseUrl = () => {
+  const envBaseUrl = import.meta.env.VITE_API_ENDPOINT;
+  const baseUrl = envBaseUrl || DEFAULT_API_BASE_URL;
+  return baseUrl.replace(/\/$/, '');
+};
 
-export class APIError extends Error {
-  constructor(message, statusCode) {
-    super(message);
-    this.name = 'APIError';
-    this.statusCode = statusCode;
+const buildWaitlistUrl = () => `${getApiBaseUrl()}/public/waitlist`;
+
+const extractErrorMessage = (payload) => {
+  if (!payload) return null;
+  if (typeof payload === 'string') return payload;
+  if (payload.message) return payload.message;
+  if (payload.error) return payload.error;
+  if (payload.detail) {
+    if (Array.isArray(payload.detail)) {
+      return payload.detail
+        .map((detail) => detail?.msg || detail?.message || detail)
+        .filter(Boolean)
+        .join(' ');
+    }
+    return payload.detail;
   }
-}
+  return null;
+};
 
 export const submitWaitlist = async (data, source = 'website') => {
-  if (!API_ENDPOINT) {
-    throw new APIError('API endpoint not configured', 500);
-  }
-
-  // Handle both old format (string) and new format (object)
   const payload = typeof data === 'string'
     ? { email: data, source }
-    : { ...data, source };
+    : { ...data, source: data?.source || source };
 
-  try {
-    const response = await fetch(`${API_ENDPOINT}/waitlist`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const responseData = await response.json();
-
-    if (!response.ok) {
-      throw new APIError(
-        responseData.error || 'Failed to submit waitlist signup',
-        response.status
-      );
+  Object.keys(payload).forEach((key) => {
+    if (payload[key] === '' || payload[key] === null || payload[key] === undefined) {
+      delete payload[key];
     }
+  });
 
-    return responseData;
-  } catch (error) {
-    if (error instanceof APIError) {
-      throw error;
-    }
+  const response = await fetch(buildWaitlistUrl(), {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
 
-    // Network or other errors
-    throw new APIError(
-      'Unable to connect to server. Please try again later.',
-      0
-    );
+  const contentType = response.headers.get('content-type') || '';
+  const responseBody = contentType.includes('application/json')
+    ? await response.json()
+    : null;
+
+  if (!response.ok) {
+    const errorMessage = extractErrorMessage(responseBody) || `Request failed (${response.status})`;
+    const error = new Error(errorMessage);
+    error.status = response.status;
+    error.payload = responseBody;
+    throw error;
   }
+
+  return responseBody || { message: 'You have been added to the waitlist.' };
 };
