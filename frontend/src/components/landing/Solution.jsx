@@ -13,11 +13,11 @@ const Solution = () => {
                     The Solution – The First Coordination Platform for Animal Welfare
                 </h2>
 
-                <p className="lead text-center max-w-[900px] mx-auto mb-6 text-[#f8f9fa] text-[15px] md:text-[18px]">
+                <p className="lead mx-auto mb-6 max-w-[900px] text-center text-[15px] text-slate-50 md:text-[18px]">
                     RescueNet360 connects shelters, rescues, fosters, volunteers, transport, and emergency responders in real-time.
                 </p>
 
-                <p className="text-center max-w-[800px] mx-auto mb-9 text-[#8B8F97] text-sm">
+                <p className="mx-auto mb-9 max-w-[800px] text-center text-sm text-chrome-accent">
                     Instead of isolated spreadsheets, phone trees, and social posts — every organization works from the same live network.
                 </p>
 

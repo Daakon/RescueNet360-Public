@@ -13,10 +13,10 @@ const Navbar = () => {
                     />
                 </a>
                 <nav className="flex gap-8 items-center max-md:hidden" aria-label="Primary">
-                    <a href="#problem" className="text-[15px] font-semibold text-white hover:text-[#1fc7b6] transition-colors">Problem</a>
-                    <a href="#solution" className="text-[15px] font-semibold text-white hover:text-[#1fc7b6] transition-colors">Solution</a>
-                    <a href="#tech" className="text-[15px] font-semibold text-white hover:text-[#1fc7b6] transition-colors">Technology</a>
-                    <a href="#market" className="text-[15px] font-semibold text-white hover:text-[#1fc7b6] transition-colors">Market</a>
+                    <a href="#problem" className="text-[15px] font-semibold text-white transition-colors hover:text-teal">Problem</a>
+                    <a href="#solution" className="text-[15px] font-semibold text-white transition-colors hover:text-teal">Solution</a>
+                    <a href="#tech" className="text-[15px] font-semibold text-white transition-colors hover:text-teal">Technology</a>
+                    <a href="#market" className="text-[15px] font-semibold text-white transition-colors hover:text-teal">Market</a>
                     <Button variant="teal" href="#join">Join Waitlist</Button>
                 </nav>
             </div>

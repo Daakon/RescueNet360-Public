@@ -7,11 +7,13 @@ export const BREAKPOINTS = {
 // Colors (matching CSS variables)
 export const COLORS = {
   primary: '#1fc7b6',
-  dark: '#1A1D23',
-  accent: '#8B8F97',
+  primaryStrong: '#0f766e',
+  dark: '#171D27',
+  accent: '#9AA8BA',
+  surface: '#EAF0F6',
   white: '#FFFFFF',
   error: '#FF3B30',
-  success: '#4CAF50',
+  success: '#166534',
 };
 
 // Social Media Links (update with real links)

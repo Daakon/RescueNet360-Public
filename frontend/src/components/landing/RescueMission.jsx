@@ -4,7 +4,7 @@ import Button from '../ui/Button';
 
 const RescueMission = () => {
     return (
-        <Section className="bg-[#0f141a] text-[#eaf1f7] relative !py-[100px]">
+        <Section className="relative !py-[100px] bg-dark text-slate-100">
             <div className="absolute inset-0 bg-[url('https://cdn.prod.website-files.com/688d4c9cd641b90f2540ee43/690a321850d6faa7ecbadd29_Screenshot%202025-10-19%20214915.png')] bg-center bg-cover bg-no-repeat filter brightness-[0.8] saturate-[1.05]"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-[rgba(4,6,8,.40)] to-[rgba(4,6,8,.55)]"></div>
 

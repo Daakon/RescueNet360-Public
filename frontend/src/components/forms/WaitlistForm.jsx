@@ -90,7 +90,7 @@ export const WaitlistForm = () => {
               </p>
             )}
             {isSuccess && !error && (
-              <p className="mt-3 text-center text-sm text-green-600" role="status">
+              <p className="status-success mt-3 text-center text-sm" role="status">
                 Thanks for joining. We will be in touch soon.
               </p>
             )}

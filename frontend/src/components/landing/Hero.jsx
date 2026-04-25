@@ -3,7 +3,7 @@ import Button from '../ui/Button';
 
 const Hero = () => {
     return (
-        <section className="relative pt-[110px] pb-[140px] text-[#eafdfb] overflow-hidden min-h-screen flex items-center">
+        <section className="relative min-h-screen overflow-hidden pb-[140px] pt-[110px] flex items-center text-white">
             {/* Background with lighter veil as requested in CSS override */}
             <div className="absolute inset-0 bg-[url('https://cdn.prod.website-files.com/688d4c9cd641b90f2540ee43/690970ed44294f1ae3cdcaba_img.png')] bg-center bg-cover bg-no-repeat"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-[rgba(4,9,12,.38)] to-[rgba(8,10,12,.52)]"></div>
@@ -17,11 +17,11 @@ const Hero = () => {
                     Powered by a National AI-Driven Pet Directory
                 </h2>
 
-                <p className="lead text-[18px] text-[#cfe8e5] leading-[1.6] max-w-[800px] mx-auto mb-5">
+                <p className="lead mx-auto mb-5 max-w-[800px] text-[18px] leading-[1.6] text-slate-100">
                     Breaking down silos to create the first coordinated network connecting shelters, rescues, fosters, volunteers, and pet owners.
                 </p>
 
-                <p className="max-w-[760px] mx-auto mb-8 text-[#8B8F97] text-base md:text-[18px]">
+                <p className="mx-auto mb-8 max-w-[760px] text-base text-chrome-accent md:text-[18px]">
                     Every year, <strong className="text-teal">607,000 animals are euthanized</strong> in the U.S. Not from neglect — from disconnection. RescueNet360 is the technology and the movement that ends it.
                 </p>
 

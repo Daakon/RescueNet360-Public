@@ -10,34 +10,34 @@ const Recruiting = () => {
             <div className="absolute inset-0 bg-black/60"></div>
 
             <div className="wrap relative z-10">
-                <h2 className="title-lg text-center mb-4 text-[#FFFFFF] font-extrabold shadow-black/80 drop-shadow-md text-[24px] md:text-[36px]">
+                <h2 className="title-lg mb-4 text-center text-[24px] font-extrabold text-white drop-shadow-md shadow-black/80 md:text-[36px]">
                     We're Recruiting the Dream Team
                 </h2>
 
-                <p className="lead text-center max-w-[840px] mx-auto mb-9 text-[#eafdfb] text-[15px] md:text-[18px]">
+                <p className="lead mx-auto mb-9 max-w-[840px] text-center text-[15px] text-slate-100 md:text-[18px]">
                     Builders and doers across Dev, AI/ML, Mobile, Backend, Product, Design, Partnerships, Funding Strategy, and Ops.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <Card className="text-center !bg-white/15 !backdrop-blur-[20px] !border-white/25 !text-white">
                         <h3 className="title-md text-teal mb-3 text-[22px] font-extrabold">Waitlist Signups</h3>
-                        <p className="text-[#FFFFFF]">Growing daily</p>
+                        <p className="text-white">Growing daily</p>
                     </Card>
 
                     <Card className="text-center !bg-white/15 !backdrop-blur-[20px] !border-white/25 !text-white">
                         <h3 className="title-md text-teal mb-3 text-[22px] font-extrabold">Build Team Applications</h3>
-                        <p className="text-[#FFFFFF]">Open now</p>
+                        <p className="text-white">Open now</p>
                     </Card>
 
                     <Card className="text-center !bg-white/15 !backdrop-blur-[20px] !border-white/25 !text-white">
                         <h3 className="title-md text-teal mb-3 text-[22px] font-extrabold">Investor Leads</h3>
-                        <p className="text-[#FFFFFF]">Actively reviewing</p>
+                        <p className="text-white">Actively reviewing</p>
                     </Card>
                 </div>
 
                 <div className="max-w-[700px] mx-auto mt-9 p-8 bg-[rgba(31,199,182,0.15)] border-2 border-teal rounded-xl text-center">
                     <h3 className="title-md text-teal mb-3 text-[22px] font-extrabold">Actively Seeking Technical Co-Founder / CTO</h3>
-                    <p className="text-[#FFFFFF] mb-0">
+                    <p className="mb-0 text-white">
                         Looking for an exceptional technical leader to build the infrastructure that will save millions of animals. Platform architecture designed, patents filed, now we need the right partner to bring it to life.
                     </p>
                 </div>
