@@ -1,109 +1,74 @@
-# RescueNet360 Frontend
+﻿# RescueNet360 Frontend
 
-React + Vite marketing site with glassmorphism design and waitlist functionality.
+React + Vite marketing site using a hybrid structure:
+
+- Structured homepage
+- Dedicated audience pages for shelters, sponsors, and investors
+- About page
+- Segmented contact funnel with dynamic fields
 
 ## Development
 
 ```bash
-# Install dependencies
+# install dependencies
 npm install
 
-# Start development server
+# start dev server
 npm run dev
 
-# Build for production
+# production build
 npm run build
 
-# Preview production build
+# preview build
 npm run preview
 
-# Lint code
+# lint
 npm run lint
 ```
 
 ## Environment Variables
 
-Create a `.env.local` file:
+Create `.env.local`:
 
-```
+```bash
 VITE_API_ENDPOINT=https://api.rescuenet360.com
 ```
 
-## Project Structure
+## Route Structure
 
-```
+- `/` Home
+- `/for-pet-families`
+- `/for-shelters-rescues`
+- `/for-sponsors-partners`
+- `/for-investors`
+- `/about`
+- `/contact`
+
+## Key Source Layout
+
+```text
 src/
-├── components/
-│   ├── primitives/      # Reusable UI components
-│   ├── sections/        # Page sections
-│   └── forms/           # Form components
-├── hooks/               # Custom React hooks
-├── utils/               # Utilities and helpers
-├── styles/              # Global styles
-├── App.jsx              # Main app component
-└── main.jsx             # Entry point
+  site/
+    components/      # header/footer/hero/forms/layout
+    config/          # navigation and site constants
+    pages/           # route pages
+  hooks/             # data submission hooks
+  utils/             # API helpers
+  App.jsx            # router + route map
 ```
 
-## Design System
+## Contact Funnel
 
-### Colors
-- Primary: `#1fc7b6` (Teal)
-- Dark: `#1A1D23` (Chrome)
-- Accent: `#8B8F97` (Gray)
+The contact form segments inquiries by visitor type:
 
-### Components
+- Shelter or Rescue
+- Sponsor or Strategic Partner
+- Investor
+- Grant Funder
+- Volunteer or Individual Supporter
 
-#### Primitives
-- **Container**: Max-width wrapper with responsive padding
-- **Heading**: Fluid typography with clamp()
-- **Text**: Paragraph text with size variants
-- **Card**: Glassmorphism card with hover effects
-- **Button**: Primary/secondary/outline variants
+Each type reveals additional context fields and submits through the same waitlist API endpoint with audience-specific metadata.
 
-#### Sections
-- **Hero**: Full-screen hero with background overlay
-- **Problem**: Stats cards and narrative
-- **Founder**: 50/50 image/text layout
-- **Solution**: Feature cards grid
-- **Technology**: Tech feature cards
-- **Market**: Market metrics cards
-- **Team**: Recruitment CTA
-- **Footer**: Contact and copyright
+## Build Note
 
-## Customization
-
-### Adding New Sections
-
-1. Create component in `src/components/sections/`
-2. Import and add to `App.jsx`
-3. Add navigation link to `src/utils/constants.js`
-
-### Updating Content
-
-Replace placeholder content in section components with real copy and assets.
-
-### Adding Images
-
-1. Place images in `public/images/`
-2. Reference in components: `/images/hero/your-image.jpg`
-3. Optimize for web (<200KB recommended)
-
-## Performance
-
-- Code splitting with Vite
-- Image optimization plugin
-- Lazy loading for below-fold content
-- CSS custom properties for theming
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Notes
-
-- Glassmorphism requires backdrop-filter support
-- Fluid typography uses CSS clamp()
-- Mobile breakpoint: 768px
+`vite-plugin-image-optimizer` is enabled only when `sharp` is available in the environment.

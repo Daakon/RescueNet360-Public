@@ -13,24 +13,24 @@ const Market = () => {
                     An Untapped $3 Billion Market. A Mission Money Can't Ignore.
                 </h2>
 
-                <p className="lead text-center max-w-[900px] mx-auto mb-9 text-[#FFFFFF] shadow-black/80 drop-shadow-sm text-[15px] md:text-[18px]">
+                <p className="lead mx-auto mb-9 max-w-[900px] text-center text-[15px] text-white drop-shadow-sm shadow-black/80 md:text-[18px]">
                     RescueNet360 isn't another startup — it's a new infrastructure layer for animal welfare. Investors in this bridge help set the standard for every rescue organization in America.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <Card className="text-center !bg-white/15 !backdrop-blur-[20px] !border-white/25 !text-white">
                         <div className="text-[36px] md:text-[56px] font-black text-teal mb-[10px] leading-none drop-shadow-[0_0_20px_rgba(31,199,182,0.4)]">$3B+</div>
-                        <p className="text-[#FFFFFF]">Annual rescue, transport & medical spend in shelters</p>
+                        <p className="text-white">Annual rescue, transport & medical spend in shelters</p>
                     </Card>
 
                     <Card className="text-center !bg-white/15 !backdrop-blur-[20px] !border-white/25 !text-white">
                         <div className="text-[36px] md:text-[56px] font-black text-teal mb-[10px] leading-none drop-shadow-[0_0_20px_rgba(31,199,182,0.4)]">14,000+</div>
-                        <p className="text-[#FFFFFF]">Active shelters & rescues (U.S.)</p>
+                        <p className="text-white">Active shelters & rescues (U.S.)</p>
                     </Card>
 
                     <Card className="text-center !bg-white/15 !backdrop-blur-[20px] !border-white/25 !text-white">
                         <div className="text-[36px] md:text-[56px] font-black text-teal mb-[10px] leading-none drop-shadow-[0_0_20px_rgba(31,199,182,0.4)]">85M+</div>
-                        <p className="text-[#FFFFFF]">Pets in households ready to pay for peace of mind</p>
+                        <p className="text-white">Pets in households ready to pay for peace of mind</p>
                     </Card>
                 </div>
 
@@ -39,7 +39,7 @@ const Market = () => {
                     <p className="text-white text-center mb-3">
                         Tiered subscription model serving shelters, rescues, and enterprise networks
                     </p>
-                    <p className="text-[#8B8F97] text-center text-sm">
+                    <p className="text-center text-sm text-chrome-accent">
                         Every organization that joins makes the platform more valuable for everyone — creating a powerful competitive moat through network effects
                     </p>
                 </div>

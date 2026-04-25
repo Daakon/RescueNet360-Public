@@ -40,34 +40,34 @@ const Waitlist = () => {
     };
 
     return (
-        <Section id="join" className="bg-[#f6f7fb]">
+        <Section id="join" className="bg-[var(--soft-surface)]">
             <div className="wrap">
                 <div className="max-w-[820px] mx-auto">
-                    <h2 className="title-lg text-center mb-6 text-[#0B0F14] text-[32px] font-extrabold">
+                    <h2 className="title-lg mb-6 text-center text-[32px] font-extrabold text-ink">
                         Join the Waitlist
                     </h2>
 
                     <div className="text-center mb-10">
-                        <p className="lead mb-6 font-semibold text-[#0B0F14] text-[18px]">
+                        <p className="lead mb-6 text-[18px] font-semibold text-ink">
                             Why Join the Waitlist?
                         </p>
 
-                        <p className="mb-4 text-[#364656] leading-[1.6]">
+                        <p className="mb-4 leading-[1.6] text-muted">
                             Because every single person who signs up here sends a signal.<br />
                             To investors. To shelters. To rescues. To literally anyone watching.
                         </p>
 
-                        <p className="mb-4 text-[#364656] leading-[1.6]">
+                        <p className="mb-4 leading-[1.6] text-muted">
                             <strong>It says people want this.</strong><br />
                             <strong>It says this matters.</strong><br />
                             <strong>It says we're done letting pets slip through the cracks.</strong>
                         </p>
 
-                        <p className="mb-4 text-[#364656] leading-[1.6]">
+                        <p className="mb-4 leading-[1.6] text-muted">
                             Your signup isn't just a name on a list — it's proof of demand. It's momentum. It's leverage.
                         </p>
 
-                        <p className="mb-0 font-semibold text-[#364656] leading-[1.6]">
+                        <p className="mb-0 font-semibold leading-[1.6] text-muted">
                             If you believe this should exist, hit the button.<br />
                             The more of us there are, the louder the message:
                         </p>
@@ -154,7 +154,7 @@ const Waitlist = () => {
                                 disabled={isLoading}
                                 className="mt-1 w-auto"
                             />
-                            <label htmlFor="consent" className="text-sm font-bold text-[#0B0F14]">I agree to receive RescueNet360 updates and understand I can unsubscribe anytime.</label>
+                            <label htmlFor="consent" className="text-sm font-bold text-ink">I agree to receive RescueNet360 updates and understand I can unsubscribe anytime.</label>
                         </div>
 
                         <Button type="submit" variant="teal" className="w-full !p-3" disabled={isLoading || isSuccess}>
@@ -168,12 +168,12 @@ const Waitlist = () => {
                         )}
 
                         {isSuccess && !error && (
-                            <p className="text-center text-sm text-green-600" role="status">
+                            <p className="status-success text-center text-sm" role="status">
                                 Thanks for joining. We will be in touch soon.
                             </p>
                         )}
 
-                        <p className="text-center text-sm text-[#8B8F97] mt-4">
+                        <p className="mt-4 text-center text-sm text-muted">
                             We'll only use your info for RescueNet360 updates. Unsubscribe anytime.
                         </p>
                     </form>

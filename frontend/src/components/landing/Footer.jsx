@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="bg-chrome-dark text-[#8B8F97] py-10 border-t border-white/10">
+        <footer className="bg-chrome-dark py-10 text-chrome-accent border-t border-white/10">
             <div className="wrap">
                 <div className="flex justify-between items-center flex-wrap gap-6">
                     <a href="/" aria-label="RescueNet360 Home" className="block">
