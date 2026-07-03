@@ -33,6 +33,11 @@ async function run() {
   const svgPath = path.join(__dirname, '../public/images/icons/shield-logo.svg');
   const publicDir = path.join(__dirname, '../public');
 
+  // Copy SVG to shield-favicon.svg as well
+  fs.copyFileSync(svgPath, path.join(publicDir, 'favicon.svg'));
+  fs.copyFileSync(svgPath, path.join(publicDir, 'shield-favicon.svg'));
+  console.log('Updated public/favicon.svg and shield-favicon.svg');
+
   // 16x16, 32x32, 48x48 PNG buffers for favicon.ico
   const sizes = [16, 32, 48];
   const pngBuffers = [];
@@ -46,7 +51,8 @@ async function run() {
 
   const icoBuf = await createIco(pngBuffers);
   fs.writeFileSync(path.join(publicDir, 'favicon.ico'), icoBuf);
-  console.log('Updated public/favicon.ico with shield logo (16x16, 32x32, 48x48)');
+  fs.writeFileSync(path.join(publicDir, 'shield-favicon.ico'), icoBuf);
+  console.log('Updated public/favicon.ico and shield-favicon.ico');
 
   // favicon-32x32.png
   const fav32 = await sharp(svgPath)
@@ -54,9 +60,10 @@ async function run() {
     .png()
     .toBuffer();
   fs.writeFileSync(path.join(publicDir, 'favicon-32x32.png'), fav32);
-  console.log('Created public/favicon-32x32.png');
+  fs.writeFileSync(path.join(publicDir, 'shield-favicon-32x32.png'), fav32);
+  console.log('Updated public/favicon-32x32.png and shield-favicon-32x32.png');
 
-  // apple-touch-icon.png (180x180 opaque white background)
+  // apple-touch-icon.png
   const appleTouch = await sharp(svgPath)
     .resize(140, 140, { fit: 'contain', background: { r: 255, g: 255, b: 255, alpha: 0 } })
     .extend({
@@ -66,7 +73,8 @@ async function run() {
     .png()
     .toBuffer();
   fs.writeFileSync(path.join(publicDir, 'apple-touch-icon.png'), appleTouch);
-  console.log('Updated public/apple-touch-icon.png');
+  fs.writeFileSync(path.join(publicDir, 'shield-apple-touch-icon.png'), appleTouch);
+  console.log('Updated public/apple-touch-icon.png and shield-apple-touch-icon.png');
 
   // pwa-192x192.png
   const pwa192 = await sharp(svgPath)

@@ -19,7 +19,7 @@ const plugins = [
   react(),
   VitePWA({
     registerType: 'autoUpdate',
-    includeAssets: ['favicon.svg', 'favicon-32x32.png', 'favicon.ico', 'apple-touch-icon.png', 'robots.txt'],
+    includeAssets: ['shield-favicon.svg', 'shield-favicon-32x32.png', 'shield-favicon.ico', 'shield-apple-touch-icon.png', 'favicon.svg', 'favicon-32x32.png', 'favicon.ico', 'apple-touch-icon.png', 'robots.txt'],
     manifest: {
       name: 'RescueNet Gateway',
       short_name: 'RescueNet',
