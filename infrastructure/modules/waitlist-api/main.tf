@@ -127,7 +127,10 @@ resource "aws_lambda_function" "waitlist" {
 
   environment {
     variables = {
-      TABLE_NAME = aws_dynamodb_table.waitlist.name
+      TABLE_NAME           = aws_dynamodb_table.waitlist.name
+      RECIPIENT_EMAIL      = var.recipient_email
+      WEB3FORMS_ACCESS_KEY = var.web3forms_access_key
+      EMAIL_WEBHOOK_URL    = var.email_webhook_url
     }
   }
 

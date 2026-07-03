@@ -113,7 +113,7 @@ export const QuickSignalForm = () => {
           disabled={isLoading}
           className="mt-0.5"
         />
-        I agree to receive RescueNet360 updates and may unsubscribe at any time.
+        I agree to receive RescueNet updates and may unsubscribe at any time.
       </label>
 
       <button type="submit" className="btn-primary w-full justify-center" disabled={isLoading || isSuccess}>
@@ -133,3 +133,4 @@ export const QuickSignalForm = () => {
     </form>
   );
 };
+

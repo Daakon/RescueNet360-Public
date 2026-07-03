@@ -29,7 +29,7 @@ const Header = () => {
                 <div className="flex items-center justify-between h-16">
                     <div className="flex lg:flex-1">
                         <a href="#" className="-m-1.5 p-1.5 flex items-center gap-2 group">
-                            <span className="sr-only">RescueNet360</span>
+                            <span className="sr-only">RescueNet</span>
                             {/* Logo Placeholder - Matches site aesthetic */}
                             <div className="flex items-center gap-2">
                                 <div className="h-8 w-8 bg-gradient-to-br from-primary to-primary-dark rounded-lg flex items-center justify-center text-white font-bold shadow-md group-hover:scale-105 transition-transform duration-200">
@@ -120,3 +120,4 @@ const Header = () => {
 };
 
 export default Header;
+

@@ -5,10 +5,10 @@ const Navbar = () => {
     return (
         <header className="fixed top-0 left-0 right-0 z-[1000] bg-[rgba(26,29,35,0.95)] backdrop-blur-[10px] border-b border-[rgba(255,255,255,0.1)]">
             <div className="wrap flex items-center justify-between h-[80px]">
-                <a href="/" aria-label="RescueNet360" className="flex items-center gap-2 font-extrabold text-white">
+                <a href="/" aria-label="RescueNet" className="flex items-center gap-2 font-extrabold text-white">
                     <img
                         src="https://cdn.prod.website-files.com/688d4c9cd641b90f2540ee43/690ab2a4ef92467957e84474_Untitled%20design%20(73).png"
-                        alt="RescueNet360 logo"
+                        alt="RescueNet logo"
                         className="h-[46px] w-auto"
                     />
                 </a>
@@ -25,3 +25,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

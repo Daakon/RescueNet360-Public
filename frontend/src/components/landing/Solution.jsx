@@ -14,7 +14,7 @@ const Solution = () => {
                 </h2>
 
                 <p className="lead mx-auto mb-6 max-w-[900px] text-center text-[15px] text-slate-50 md:text-[18px]">
-                    RescueNet360 connects shelters, rescues, fosters, volunteers, transport, and emergency responders in real-time.
+                    RescueNet connects shelters, rescues, fosters, volunteers, transport, and emergency responders in real-time.
                 </p>
 
                 <p className="mx-auto mb-9 max-w-[800px] text-center text-sm text-chrome-accent">
@@ -49,3 +49,4 @@ const Solution = () => {
 };
 
 export default Solution;
+

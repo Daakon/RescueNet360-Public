@@ -6,7 +6,7 @@ const sections = [
   {
     title: 'Accessibility Commitment',
     paragraphs: [
-      'RescueNet360 is committed to providing digital experiences that are usable by as many people as possible, including people with disabilities.',
+      'RescueNet is committed to providing digital experiences that are usable by as many people as possible, including people with disabilities.',
       'As a mission-first Public Benefit Corporation, we view accessibility as part of animal welfare access, public trust, and equitable service delivery.',
       'We work to provide equal access for pet families, shelters, rescues, fosters, sponsors, and partners.',
     ],
@@ -30,7 +30,7 @@ const sections = [
   {
     title: 'Feedback and Support',
     paragraphs: [
-      'If you encounter an accessibility barrier, contact us at contact@rescuenet360.com and include the page, issue, and assistive technology you are using if possible.',
+      'If you encounter an accessibility barrier, contact us at contact@RescueNet.com and include the page, issue, and assistive technology you are using if possible.',
       'We aim to acknowledge accessibility requests within 2 business days and provide practical alternatives while fixes are underway.',
       'Accessibility feedback directly informs prioritization and helps us improve outcomes for all users.',
     ],
@@ -42,9 +42,10 @@ export const AccessibilityPage = () => {
     <LegalScaffoldPage
       eyebrow="Accessibility Statement"
       title="Accessibility Statement"
-      intro="This statement describes RescueNet360 accessibility goals, current practices, and how to request support."
+      intro="This statement describes RescueNet accessibility goals, current practices, and how to request support."
       metaNote={EFFECTIVE_DATE}
       sections={sections}
     />
   );
 };
+

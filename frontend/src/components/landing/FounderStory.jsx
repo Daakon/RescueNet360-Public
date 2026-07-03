@@ -9,7 +9,7 @@ const FounderStory = () => {
                     <div className="rounded-[16px] overflow-hidden shadow-soft">
                         <img
                             src="https://cdn.prod.website-files.com/688d4c9cd641b90f2540ee43/690a325b25e3e88b934de9f0_misty.jpg"
-                            alt="Misty Harrison, Founder of RescueNet360"
+                            alt="Misty Harrison, Founder of RescueNet"
                             className="w-full h-auto block"
                         />
                     </div>
@@ -43,7 +43,7 @@ const FounderStory = () => {
                         </p>
 
                         <p className="mb-8 leading-[1.6] text-muted">
-                            <strong>That's not a peaceful death. That's a system failure. And I knew I could help fix it. So I started RescueNet360.</strong>
+                            <strong>That's not a peaceful death. That's a system failure. And I knew I could help fix it. So I started RescueNet.</strong>
                         </p>
 
                         <div className="mb-8 rounded-lg border-l-4 border-teal bg-soft p-6">
@@ -56,7 +56,7 @@ const FounderStory = () => {
                             <strong>— Misty Harrison</strong>
                         </p>
                         <p className="text-muted">
-                            Founder & CEO, RescueNet360
+                            Founder & CEO, RescueNet
                         </p>
                     </div>
                 </div>
@@ -66,3 +66,4 @@ const FounderStory = () => {
 };
 
 export default FounderStory;
+

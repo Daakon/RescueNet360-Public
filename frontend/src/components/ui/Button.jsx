@@ -1,20 +1,22 @@
 import React from 'react';
 
 const Button = ({ children, variant = 'default', className = '', ...props }) => {
-    const baseStyles = "inline-flex items-center justify-center transition-all duration-300 cursor-pointer";
+    const baseStyles = "inline-flex items-center justify-center transition-all duration-300 cursor-pointer rounded-[18px] font-bold outline-none";
 
+    // Replaced legacy borders with elevation and tonal contrast.
     const variants = {
-        default: "px-5 py-[14px] rounded-[18px] font-bold border border-slate-200 bg-gradient-to-b from-white to-soft text-ink shadow-soft hover:shadow-lg",
+        default: "px-comfortable-pad py-[14px] bg-surface-elevated text-text-primary shadow-elevation-1 hover:shadow-elevation-2 hover:scale-[1.01]",
+        
+        primary: "px-comfortable-pad py-[14px] bg-primary text-text-inverse shadow-elevation-1 hover:shadow-elevation-2 hover:scale-[1.01] focus:ring-2 focus:ring-surface-focus",
+        
+        secondary: "px-comfortable-pad py-[14px] bg-surface-interactive text-text-primary hover:bg-surface-focus hover:scale-[1.01]",
+        
+        tertiary: "px-comfortable-pad py-[14px] bg-transparent text-text-primary hover:bg-surface-interactive",
 
-        primary: "px-5 py-[14px] rounded-[18px] font-bold border border-chrome-accent/60 bg-gradient-to-br from-chrome-medium to-chrome-dark text-slate-50 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(15,118,110,0.42),0_12px_28px_rgba(7,12,18,0.42)] hover:border-teal/80 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-1px_0_rgba(31,199,182,0.55),0_16px_34px_rgba(7,12,18,0.52)]",
-
-        dark: "px-5 py-[14px] rounded-[18px] font-bold border-0 bg-dark text-slate-100 hover:bg-chrome-dark",
-
-        // Explicit hex for Teal to ensure visibility
-        teal: "px-[32px] py-[14px] rounded-[50px] font-bold text-[15px] uppercase tracking-[0.5px] border border-chrome-accent/60 bg-gradient-to-br from-chrome-medium to-chrome-dark text-slate-50 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(15,118,110,0.42),0_12px_28px_rgba(7,12,18,0.42)] hover:-translate-y-[3px] hover:border-teal/80 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-1px_0_rgba(31,199,182,0.55),0_16px_34px_rgba(7,12,18,0.52)]",
-
-        // Chrome-forward variant for secondary actions
-        chrome: "px-[32px] py-[14px] rounded-[50px] font-bold text-[15px] uppercase tracking-[0.5px] bg-gradient-to-br from-chrome-medium to-chrome-light text-white border-2 border-white/20 shadow-[0_6px_25px_rgba(0,0,0,0.4)] hover:-translate-y-[3px] hover:shadow-[0_10px_35px_rgba(0,0,0,0.5)] hover:border-teal"
+        // Mapping legacy variants to new system equivalents to prevent breaks
+        dark: "px-comfortable-pad py-[14px] bg-surface-dark-elevated text-text-inverse hover:bg-surface-dark-interactive",
+        teal: "px-comfortable-pad py-[14px] bg-secondary text-text-inverse shadow-elevation-1 hover:shadow-elevation-2 hover:scale-[1.01]",
+        chrome: "px-comfortable-pad py-[14px] bg-surface-interactive text-text-primary shadow-elevation-1 hover:shadow-elevation-2 hover:scale-[1.01]"
     };
 
     const Component = props.href ? 'a' : 'button';

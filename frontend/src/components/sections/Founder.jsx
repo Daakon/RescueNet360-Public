@@ -18,13 +18,13 @@ export const Founder = () => {
               <figure className="mt-10 border-l border-primary pl-9">
                 <blockquote className="font-semibold text-gray-900">
                   <p>
-                    "RescueNet360 isn't just software—it's a mission to build the first truly coordinated system that gives every shelter, rescue, and foster network the tools they need to save more lives."
+                    "RescueNet isn't just software—it's a mission to build the first truly coordinated system that gives every shelter, rescue, and foster network the tools they need to save more lives."
                   </p>
                 </blockquote>
                 <figcaption className="mt-6 flex gap-x-4">
                   <div className="text-sm leading-6">
                     <div className="font-semibold text-gray-900">Misty Harrison</div>
-                    <div className="text-gray-600">Founder of RescueNet360</div>
+                    <div className="text-gray-600">Founder of RescueNet</div>
                   </div>
                 </figcaption>
               </figure>
@@ -44,3 +44,4 @@ export const Founder = () => {
     </section>
   );
 };
+

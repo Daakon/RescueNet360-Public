@@ -111,9 +111,9 @@ export const About = () => {
     <>
       <PageHero
         size="compact"
-        eyebrow="About RescueNet360"
+        eyebrow="About RescueNet"
         title="Coordination infrastructure for pet families and the animal welfare system"
-        description="RescueNet360 is a Public Benefit Corporation building the shared operating layer that helps families find help faster while enabling shelters, rescues, and partners to coordinate with greater clarity."
+        description="RescueNet is a Public Benefit Corporation building the shared operating layer that helps families find help faster while enabling shelters, rescues, and partners to coordinate with greater clarity."
         ctas={[
           { label: 'Explore Pet Family Path', to: '/for-pet-families' },
           { label: 'Explore Partnership Path', to: '/for-sponsors-partners', variant: 'soft' },
@@ -193,7 +193,7 @@ export const About = () => {
             <SectionIntro
               eyebrow="Public Benefit Commitment"
               title="Governed for mission continuity and measurable impact"
-              description="As a Public Benefit Corporation, RescueNet360 aligns strategy, operations, and accountability with long-term public-benefit outcomes."
+              description="As a Public Benefit Corporation, RescueNet aligns strategy, operations, and accountability with long-term public-benefit outcomes."
             />
             <ul className="mt-6 grid gap-3 text-sm leading-relaxed text-[#334155]">
               {benefitCommitments.map((item) => (
@@ -248,3 +248,4 @@ export const About = () => {
     </>
   );
 };
+

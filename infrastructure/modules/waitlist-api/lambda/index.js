@@ -46,6 +46,7 @@ exports.handler = async (event) => {
     await docClient.send(new PutCommand({
       TableName: TABLE_NAME,
       Item: {
+        ...body,
         email,
         timestamp,
         source,
@@ -54,6 +55,56 @@ exports.handler = async (event) => {
     }));
 
     console.log('Successfully added to waitlist:', email);
+
+    // Send free secure email/webhook notification if configured
+    const recipientEmail = process.env.RECIPIENT_EMAIL || 'ed.lent@rescuenet360.com';
+    const web3FormsKey = process.env.WEB3FORMS_ACCESS_KEY;
+    const webhookUrl = process.env.EMAIL_WEBHOOK_URL;
+
+    if (web3FormsKey || webhookUrl) {
+      try {
+        const messageSummary = [
+          `New Submission (${source})`,
+          `----------------------------------------`,
+          `Organization: ${body.orgName || body.organization || 'N/A'}`,
+          `Contact Name: ${body.contactName || body.name || 'N/A'}`,
+          `Email: ${email}`,
+          `Organization Type: ${body.orgType || 'N/A'}`,
+          `Challenge / Notes:\n${body.challenge || body.message || 'None provided'}`,
+          `----------------------------------------`,
+          `Timestamp: ${timestamp}`
+        ].join('\n');
+
+        if (web3FormsKey) {
+          await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              access_key: web3FormsKey,
+              subject: `[RescueNet360] New Pilot Application - ${body.orgName || email}`,
+              from_name: 'RescueNet360 Portal',
+              email: email,
+              message: messageSummary,
+            })
+          });
+        } else if (webhookUrl) {
+          await fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              recipient: recipientEmail,
+              subject: `[RescueNet360] New Pilot Application - ${body.orgName || email}`,
+              email: email,
+              message: messageSummary,
+              payload: body
+            })
+          });
+        }
+        console.log('Notification sent successfully');
+      } catch (notifyErr) {
+        console.error('Failed to send notification email/webhook:', notifyErr);
+      }
+    }
 
     return {
       statusCode: 200,

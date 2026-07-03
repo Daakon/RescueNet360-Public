@@ -10,7 +10,7 @@ export const Solution = () => {
             The First Coordination Platform for Animal Welfare
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            RescueNet360 provides the digital infrastructure to connect all players in the animal welfare ecosystem, enabling real-time collaboration and lifesaving efficiency.
+            RescueNet provides the digital infrastructure to connect all players in the animal welfare ecosystem, enabling real-time collaboration and lifesaving efficiency.
           </p>
         </div>
 
@@ -57,3 +57,4 @@ export const Solution = () => {
     </section>
   );
 };
+

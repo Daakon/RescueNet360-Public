@@ -1,4 +1,4 @@
-const DEFAULT_API_BASE_URL = 'https://api.rescuenet360.com';
+const DEFAULT_API_BASE_URL = 'https://api.RescueNet.com';
 
 const getApiBaseUrl = () => {
   const envBaseUrl = import.meta.env.VITE_API_ENDPOINT;
@@ -59,3 +59,12 @@ export const submitWaitlist = async (data, source = 'website') => {
 
   return responseBody || { message: 'You have been added to the waitlist.' };
 };
+
+export const submitPilotApplication = async (formData) => {
+  return submitWaitlist({
+    ...formData,
+    source: formData.source || 'pilot-application',
+  });
+};
+
+

@@ -1,106 +1,80 @@
-import { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { PRIMARY_NAV } from '../config/navigation';
-
-const linkBaseClass =
-  'rounded-full border border-transparent px-2.5 py-2 text-[13px] font-semibold transition-colors duration-200';
-
-const getNavLinkClass = ({ isActive }) =>
-  `${linkBaseClass} ${isActive ? 'border-[rgba(31,199,182,0.7)] bg-[linear-gradient(145deg,#2a3442_0%,#171d27_100%)] text-white' : 'text-white/90 hover:border-white/15 hover:bg-white/10 hover:text-white'}`;
+import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 export const SiteHeader = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [logoSrc, setLogoSrc] = useState(
-    'https://cdn.prod.website-files.com/688d4c9cd641b90f2540ee43/690ab2a4ef92467957e84474_Untitled%20design%20(73).png'
-  );
+  const location = useLocation();
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+  const NAV_LINKS = [
+    { to: '/shelters-rescues', label: 'Shelters & Rescues' },
+    { to: '/pet-owners', label: 'Pet Owners' },
+    { to: '/sponsorship', label: 'Sponsors & Partners' },
+    { to: '/about', label: 'About' },
+  ];
 
-  const handleModeSwitch = (mode, route) => {
-    localStorage.setItem('route_preference', mode);
-    navigate(route);
-  };
-
-  const isPetFamily = location.pathname === '/for-pet-families';
-  const isOrganization = location.pathname === '/for-shelters-rescues';
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <>
-      {/* Mode Switch Utility Bar */}
-      {(isPetFamily || isOrganization) && (
-        <div className="bg-[#0f172a] border-b border-white/10 text-xs py-1.5 px-4 flex justify-center items-center gap-4 text-white/70">
-          <span className="hidden md:inline">Viewing as:</span>
-          <div className="flex bg-black/40 rounded-full p-0.5 border border-white/5">
-            <button 
-              onClick={() => handleModeSwitch('organizations', '/for-shelters-rescues')}
-              className={`px-3 py-1 rounded-full font-semibold transition-all ${isOrganization ? 'bg-[#1fc7b6]/20 text-[#1fc7b6] shadow-sm' : 'hover:text-white hover:bg-white/5'}`}
-            >
-              Organizations
-            </button>
-            <button 
-              onClick={() => handleModeSwitch('individuals', '/for-pet-families')}
-              className={`px-3 py-1 rounded-full font-semibold transition-all ${isPetFamily ? 'bg-[#0f766e]/20 text-[#76f0e2] shadow-sm' : 'hover:text-white hover:bg-white/5'}`}
-            >
-              Pet Families
-            </button>
-          </div>
-        </div>
-      )}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[linear-gradient(145deg,rgba(23,29,39,0.96)_0%,rgba(42,52,66,0.94)_100%)] backdrop-blur-xl">
-        <div className="wrap flex h-20 items-center justify-between">
-        <Link to="/" className="flex min-w-[240px] flex-col items-start justify-center gap-1.5 md:min-w-[280px]">
+    <header className="sticky top-0 z-[100] bg-white/95 backdrop-blur-xl border-b border-slate-200/60 shadow-sm transition-all duration-300">
+      <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 flex h-20 items-center justify-between">
+        <Link to="/" className="flex items-center justify-center gap-3">
           <img
-            src={logoSrc}
-            onError={() => setLogoSrc('/images/icons/logo.png')}
-            alt="RescueNet360 logo"
-            className="h-10 w-auto md:h-12"
+            src="/images/icons/shield-logo.svg"
+            alt="RescueNet360 Shield Logo"
+            className="h-10 w-auto"
+            onError={(e) => { e.target.style.display = 'none'; }}
           />
-          <p className="text-[12px] font-semibold tracking-wide text-white/70 md:text-[13px]">
-            Pet Reunification + Coordination
-          </p>
+          <div className="flex flex-col">
+            <span className="text-xl font-extrabold font-display leading-tight">
+              <span className="text-primary">Rescue</span><span className="text-secondary">Net</span><span className="text-slate-800">360</span>
+            </span>
+            <span className="text-[10px] uppercase tracking-wider font-bold text-text-muted leading-tight hidden sm:block">Connect. Protect. Save Lives.</span>
+          </div>
         </Link>
-
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-          {PRIMARY_NAV.map((item) => (
-            <NavLink key={item.to} to={item.to} className={getNavLinkClass}>
+        
+        <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
+          {NAV_LINKS.map((item) => (
+            <Link 
+              key={item.to} 
+              to={item.to} 
+              className={`text-sm font-bold transition-colors hover:text-primary py-2 ${isActive(item.to) ? 'text-primary border-b-2 border-primary' : 'text-slate-600'}`}
+            >
               {item.label}
-            </NavLink>
+            </Link>
           ))}
         </nav>
 
-        <button
-          type="button"
-          onClick={() => setIsMobileMenuOpen((open) => !open)}
-          className="inline-flex h-10 items-center rounded-lg border border-[rgba(154,168,186,0.55)] px-3 text-sm font-semibold text-white lg:hidden"
-          aria-expanded={isMobileMenuOpen}
-          aria-controls="mobile-nav"
-        >
-          Menu
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-slate-300 text-slate-700 lg:hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+            aria-expanded={isMobileMenuOpen}
+            aria-label="Toggle Navigation Menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
+            </svg>
+          </button>
+        </div>
       </div>
 
       {isMobileMenuOpen && (
-        <nav id="mobile-nav" className="border-t border-white/10 bg-[linear-gradient(145deg,#171d27_0%,#2a3442_100%)] px-5 pb-4 pt-3 lg:hidden" aria-label="Mobile primary">
-          <div className="mx-auto flex max-w-[1140px] flex-col gap-2">
-            {PRIMARY_NAV.map((item) => (
-              <NavLink
+        <div className="fixed inset-0 top-20 z-40 bg-[#18181B]/20 backdrop-blur-sm lg:hidden" onClick={() => setIsMobileMenuOpen(false)}>
+          <nav className="absolute top-0 left-0 w-full border-t border-separator bg-white px-5 pb-6 pt-4 shadow-xl flex flex-col gap-2" onClick={(e) => e.stopPropagation()} aria-label="Mobile primary">
+            {NAV_LINKS.map((item) => (
+              <Link
                 key={item.to}
                 to={item.to}
-                className={({ isActive }) =>
-                  `rounded-lg border border-transparent px-3 py-2 text-sm font-semibold transition-colors ${isActive ? 'border-[rgba(31,199,182,0.7)] bg-[linear-gradient(145deg,#2a3442_0%,#171d27_100%)] text-white' : 'text-white/90 hover:border-white/15 hover:bg-white/10'}`
-                }
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`rounded-lg px-4 py-3 text-base font-bold transition-colors ${isActive(item.to) ? 'bg-primary/10 text-primary' : 'text-text-primary hover:bg-surface hover:text-primary'}`}
               >
                 {item.label}
-              </NavLink>
+              </Link>
             ))}
-          </div>
-        </nav>
+          </nav>
+        </div>
       )}
     </header>
-    </>
   );
 };

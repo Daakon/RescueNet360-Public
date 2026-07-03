@@ -8,7 +8,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/60 to-gray-900/90" />
         <img
           src="/images/hero/hero-background.jpg"
-          alt="RescueNet360 Hero"
+          alt="RescueNet Hero"
           className="h-full w-full object-cover object-center"
         />
       </div>
@@ -54,3 +54,4 @@ export const Hero = () => {
     </section>
   );
 };
+

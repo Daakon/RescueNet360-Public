@@ -6,7 +6,7 @@ export const LegalScaffoldPage = ({
   sections,
   eyebrow = 'Legal',
   cta = null,
-  metaNote = 'This policy may be updated as RescueNet360 services evolve.',
+  metaNote = 'This policy may be updated as RescueNet services evolve.',
 }) => {
   return (
     <>
@@ -34,3 +34,4 @@ export const LegalScaffoldPage = ({
     </>
   );
 };
+

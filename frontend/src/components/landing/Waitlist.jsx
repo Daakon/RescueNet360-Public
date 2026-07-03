@@ -154,7 +154,7 @@ const Waitlist = () => {
                                 disabled={isLoading}
                                 className="mt-1 w-auto"
                             />
-                            <label htmlFor="consent" className="text-sm font-bold text-ink">I agree to receive RescueNet360 updates and understand I can unsubscribe anytime.</label>
+                            <label htmlFor="consent" className="text-sm font-bold text-ink">I agree to receive RescueNet updates and understand I can unsubscribe anytime.</label>
                         </div>
 
                         <Button type="submit" variant="teal" className="w-full !p-3" disabled={isLoading || isSuccess}>
@@ -174,7 +174,7 @@ const Waitlist = () => {
                         )}
 
                         <p className="mt-4 text-center text-sm text-muted">
-                            We'll only use your info for RescueNet360 updates. Unsubscribe anytime.
+                            We'll only use your info for RescueNet updates. Unsubscribe anytime.
                         </p>
                     </form>
                 </div>
@@ -184,3 +184,4 @@ const Waitlist = () => {
 };
 
 export default Waitlist;
+

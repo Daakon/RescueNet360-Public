@@ -14,7 +14,7 @@ const MockupPreview = () => {
                 <div className="mx-auto max-w-[900px] transform overflow-hidden rounded-[16px] border-[10px] border-dark perspective-[1000px] rotate-[-2deg] shadow-[0_40px_100px_rgba(0,0,0,0.15)]">
                     <img
                         src="https://cdn.prod.website-files.com/688d4c9cd641b90f2540ee43/690a3c7af3d8b2b517eb8c84_Untitled%20design%20(67).png"
-                        alt="RescueNet360 UI mockup"
+                        alt="RescueNet UI mockup"
                         className="w-full h-auto block"
                     />
                 </div>
@@ -24,3 +24,4 @@ const MockupPreview = () => {
 };
 
 export default MockupPreview;
+

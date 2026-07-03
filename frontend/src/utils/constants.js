@@ -25,7 +25,7 @@ export const SOCIAL_LINKS = {
 
 // Contact Information
 export const CONTACT = {
-  email: 'contact@rescuenet360.com',
+  email: 'contact@RescueNet.com',
   phone: '1-800-RESCUE',
 };
 
@@ -37,3 +37,4 @@ export const NAV_LINKS = [
   { label: 'Market', href: '#market' },
   { label: 'Join Waitlist', href: '#waitlist', primary: true },
 ];
+

@@ -5,15 +5,15 @@ const Footer = () => {
         <footer className="bg-chrome-dark py-10 text-chrome-accent border-t border-white/10">
             <div className="wrap">
                 <div className="flex justify-between items-center flex-wrap gap-6">
-                    <a href="/" aria-label="RescueNet360 Home" className="block">
+                    <a href="/" aria-label="RescueNet Home" className="block">
                         <img
                             src="https://cdn.prod.website-files.com/688d4c9cd641b90f2540ee43/690ab20eaf0a745cd9acb7da_Untitled%20design%20(72).png"
-                            alt="RescueNet360 logo"
+                            alt="RescueNet logo"
                             className="h-10 w-auto"
                         />
                     </a>
                     <div className="text-sm">
-                        © <span id="year">{new Date().getFullYear()}</span> RescueNet360. Innovation That Saves Lives.
+                        © <span id="year">{new Date().getFullYear()}</span> RescueNet. Innovation That Saves Lives.
                     </div>
                 </div>
             </div>
@@ -22,3 +22,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

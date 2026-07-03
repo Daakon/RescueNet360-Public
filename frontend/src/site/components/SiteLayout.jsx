@@ -4,7 +4,7 @@ import { SiteHeader } from './SiteHeader';
 
 export const SiteLayout = () => {
   return (
-    <div className="flex min-h-screen flex-col bg-deep text-slate-200">
+    <div className="flex min-h-screen flex-col bg-bg text-text-primary">
       <SiteHeader />
       <main className="flex-1">
         <Outlet />

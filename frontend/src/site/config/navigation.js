@@ -1,26 +1,24 @@
 export const PRIMARY_NAV = [
-  { label: 'For Pet Families', to: '/for-pet-families' },
+  { label: 'How It Works', to: '/#how-it-works' },
+  { label: 'For Pet Owners', to: '/for-pet-families' },
   { label: 'For Shelters & Rescues', to: '/for-shelters-rescues' },
-  { label: 'Partner With Us', to: '/for-sponsors-partners' },
-  { label: 'Investors', to: '/for-investors' },
-  { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
 ];
 
-export const FOOTER_SITE_NAV = [
-  { label: 'For Pet Families', to: '/for-pet-families' },
+export const FOOTER_PRODUCT_NAV = [
+  { label: 'For Pet Owners', to: '/for-pet-families' },
   { label: 'For Shelters & Rescues', to: '/for-shelters-rescues' },
-  { label: 'Partner With Us', to: '/for-sponsors-partners' },
-  { label: 'Contact', to: '/contact' },
 ];
 
 export const FOOTER_COMPANY_NAV = [
   { label: 'About', to: '/about' },
   { label: 'Public Benefit Commitment', to: '/about#public-benefit-commitment' },
-  { label: 'Investors', to: '/for-investors' },
-  { label: 'Terms of Service', to: '/terms' },
-  { label: 'Privacy Policy', to: '/privacy' },
-  { label: 'Accessibility Statement', to: '/accessibility' },
+  { label: 'Contact', to: '/contact' },
 ];
 
-export const CONTACT_EMAIL = 'contact@rescuenet360.com';
+export const FOOTER_LEGAL_NAV = [
+  { label: 'Terms of Service', to: '/terms' },
+  { label: 'Privacy Policy', to: '/privacy' },
+];
+
+export const CONTACT_EMAIL = 'contact@RescueNet.com';
+

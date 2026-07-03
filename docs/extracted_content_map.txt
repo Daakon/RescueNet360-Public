@@ -1,0 +1,451 @@
+RescueNet360
+Public Website Content Map
+Blended Version for Review  |  June 2026
+Prepared by Melanie for Misty's review
+How to Read This Document
+
+This is the blended content map for RescueNet360's public website. Each section shows the recommended copy and any notes or open questions that need decisions before finalizing. Sections marked OPEN QUESTION need input from the team before the page goes live.
+CMS-EDITABLE
+Melanie updates in Strapi. No dev work.
+ED-BUILT
+Requires dev work from Ed.
+CMS + ED-BUILT
+Ed builds structure; Melanie manages copy.
+
+Pages covered: Home  |  Shelters & Rescues  |  Pet Owners  |  Sponsors & Partners  |  About  |  Contact
+Page 1: Home   /
+Purpose: Help first-time visitors immediately understand what RescueNet360 is and route them to the right experience path. Primary conversion goal is shelters and rescues applying to become pilot partners.
+Section 1 — Hero
+Section 1Hero
+  CMS-EDITABLE  
+Headline: Animal Welfare Runs on Disconnected Systems. Not Anymore.
+
+Supporting Text:
+RescueNet360 is the operational backbone shelters and rescues have been missing. Track animals. Coordinate care. Reunite pets faster. Built to connect intake, foster coordination, transport, reunification, and pet identity into one persistent, coordinated system.
+
+Primary CTA: Apply for Pilot Access
+Secondary CTA removed per earlier decision. One action, no distraction.
+
+CMS block: generic-hero-section
+
+Section 2 — Audience Path Cards
+Section 2AudiencePath Cards
+  CMS-EDITABLE  
+Shelters & Rescues card:
+Your team is doing critical work across disconnected systems. There is a better way.
+CTA: Explore Shelter Tools  →  /shelters-rescues
+
+Pet Owners card:
+Your pet's information should not live only in your head. Register, protect, reunite.
+CTA: Explore Pet Owner Tools  →  /pet-owners
+
+Sponsors & Partners card:
+This is infrastructure that protects animals at scale. See what your support funds.
+CTA: Explore Sponsorship  →  /sponsors
+
+CMS block: generic-grid-section  |  3 columns desktop, 1 column mobile  |  item_style: card
+
+Section 3 — Platform Overview
+Section 3PlatformOverview
+  CMS-EDITABLE  
+Section title: One Platform. Every Animal. Every Stage.
+
+Body:
+RescueNet360 connects public pet tools, shelter operations, foster coordination, reunification workflows, and regional response systems into a single persistent infrastructure. The goal is simple: help organizations work smarter and improve outcomes for animals.
+
+CMS block: generic-split-section  |  text left, image right
+
+Section 4 — Pilot Program CTA Band
+Section 4Pilot CTABand
+  CMS-EDITABLE  
+Section title: Founding Pilot Partners: Limited Slots Available
+
+Body:
+RescueNet360 is selecting a small cohort of shelters and rescue organizations to receive early platform access, direct input into feature development, and founding partner status as the platform scales. This is not a waitlist. This is a seat at the table.
+
+CTA: Apply for Pilot Access  →  /shelters-rescues
+Transition note: after pilot phase, update headline and CTA to standard signup language. No dev work required.
+
+CMS block: generic-section with Brand Purple background  |  single primary CTA
+
+Section 5 — Mission Statement
+Section 5Mission
+  CMS-EDITABLE  
+Section title: Built to Improve Outcomes for Animals
+
+Body:
+Animal welfare teams are being asked to do more with limited resources and disconnected systems. RescueNet360 exists to improve coordination, visibility, and decision-making so more animals can get the care, protection, and reunification they deserve.
+
+CMS block: generic-rich-text-section or generic-split-section
+
+Page 2: Shelters & Rescues   /shelters-rescues
+Purpose: Primary conversion page for shelter and rescue organizations. Built to transition cleanly to a standard signup page after the pilot phase ends without rebuilding.
+Section 1 — Hero
+Section 1Hero
+  CMS-EDITABLE  
+Headline: Animal Welfare Is Hard Enough. Your Tools Should Not Make It Harder.
+
+Supporting Text:
+RescueNet360 connects animal records, intake workflows, foster coordination, transport, and reunification into a single operational system so your team stops rebuilding context from scratch every time an animal moves.
+
+Primary CTA: Apply for Pilot Access
+Transition note: update CTA label to 'Get Started' or 'Request Access' after pilot phase. Must be CMS-editable.
+
+CMS block: generic-hero-section
+
+Section 2 — Problem Statement
+Section 2ProblemStatement
+  CMS-EDITABLE  
+Section title: Sound Familiar?
+Body:
+Most shelters and rescues are managing critical work across a mix of spreadsheets, emails, paper notes, separate software, and individual memory. That means:
+Duplicated work and slow handoffs between teams
+Limited visibility across partner organizations
+Missed reunification windows that could have been caught
+Harder decisions made with incomplete information
+Staff time spent chasing data instead of helping animals
+Institutional knowledge that lives in one person's head and walks out the door when they do
+
+CMS block: generic-split-section or generic-grid-section
+
+Section 3 — What RescueNet360 Does
+Section 3Capabilities
+  CMS-EDITABLE  
+Section title: One Connected Platform for Animal Welfare Operations
+Body:
+When your systems are connected, your team stops fighting the data and starts making better decisions for animals. RescueNet360 brings together:
+Intake and animal tracking from arrival through outcome
+Persistent pet identity records with photos, documents, and medical history
+Lost and found reporting with automated reunification matching
+Foster placement and coordination tools
+Transport workflow support across organizations
+Public pet profiles and adoption applications
+Contacts, tasks, and cross-team operational visibility
+Reporting and outcome analytics
+
+CMS block: generic-grid-section  |  Evergreen, no changes needed post-pilot
+
+Section 4 — Pilot Section (Shape the Standard)
+Section 4Pilot Section[PILOT PHASEONLY]
+  CMS-EDITABLE  
+Section title: Shape the Standard. Be Part of What Gets Built Next.
+
+Body:
+RescueNet360 is in active development and we are selecting a small group of shelters and rescues to test real workflows, share honest feedback, and help us prioritize what matters most.
+We are not asking you to replace everything overnight. We are asking you to test what exists, tell us what works, and help build something that actually fits the way your team operates.
+As a founding pilot partner, you receive:
+Free platform access during development. No cost, no commitment.
+A direct line to the development team. Your feedback shapes real features.
+Priority onboarding and migration support
+Founding Partner recognition as the platform scales
+Early adopter status before public launch
+POST-PILOT TRANSITION: Melanie replaces this entire section's headline, body, and bullet list via CMS. No dev work required.
+
+CMS block: generic-section with muted background
+
+Section 5 — Application Form
+Section 5ApplicationForm
+  ED-BUILT  
+Section title: Ready to Get Started?
+Tell us a little about your organization and we will be in touch.
+
+Form fields:
+Organization Name
+Contact Name
+Email Address
+Organization Type (shelter / rescue / foster-based rescue / transport org / other)
+Tell us about your current setup or biggest challenge (open text)
+
+CTA button: Apply for Pilot Access  [must be CMS-editable]
+Ed builds form handler. Route submissions to pilot@rescuenet360.com and/or CRM/Jira intake. CTA button label must be CMS-editable for post-pilot transition. Keep form to 5 fields only.
+
+Section 6 — Reassurance Strip
+Section 6ReassuranceStrip
+  CMS-EDITABLE  
+Body:
+No cost to participate. No obligation beyond honest feedback. RescueNet360 is free for shelters and rescues during pilot and beyond. The platform's funding model is built on sponsorships, not shelter budgets.
+
+CMS block: generic-banner-section  |  Keep short  |  Evergreen
+
+Page 3: Pet Owners   /pet-owners
+Purpose: Explain pet registration, lost and found tools, QR and share tools, and reunification support to individual pet owners.
+Section 1 — Hero
+Section 1Hero
+  CMS-EDITABLE  
+Headline: Protect Your Pet Before They Go Missing
+
+Supporting Text:
+Create your pet's permanent digital identity. Photos, records, microchip information, emergency contacts. If they ever go missing, the right information is already in the hands of the people who can help.
+
+Primary CTA: Get Started
+CMS block: generic-hero-section
+
+Section 2 — Feature Cards
+Section 2FeatureCards
+  CMS-EDITABLE  
+Register Your Pet:
+Create a pet profile with photos, identifying details, ownership information, emergency contacts, and QR and share tools.
+
+Report Lost or Found Pets:
+Quickly submit lost or found pet reports and get your information in front of the shelters and rescues who need to see it.
+
+Review Possible Matches:
+RescueNet360 surfaces confidence-scored matches between lost and found pets to support faster, more accurate reunification.
+
+Coordinated Reunification:
+When your pet goes missing, RescueNet360 surfaces your registration data to connected shelters, rescues, and community members so the network works for you automatically.
+
+CMS block: generic-grid-section  |  4 columns desktop, 1 mobile  |  item_style: card
+
+Section 3 — CTA
+Section 3CTA
+  CMS-EDITABLE  
+CTA button: Get Started  →  /app/register-pet
+CMS block: generic-section with primary CTA
+
+Page 4: Sponsors & Partners   /sponsors
+Purpose: Explain sponsor-supported regional animal welfare infrastructure. Sponsors should feel like they are funding community infrastructure, not buying advertising.
+Section 1 — Hero
+Section 1Hero
+  CMS-EDITABLE  
+Headline: Support the Infrastructure That Protects Animals
+
+Supporting Text:
+RescueNet360 connects shelters, rescues, and pet owners across regions into a single coordinated system. Sponsors fund the infrastructure that makes that coordination possible and their presence is woven into the communities they serve, not pasted on top.
+
+CMS block: generic-hero-section
+
+Section 2 — This Is Not Traditional Advertising
+Section 2SponsorPositioning
+  CMS-EDITABLE  
+Section title: This Is Not Traditional Advertising
+
+Body:
+Sponsors help support tools and infrastructure that improve animal welfare operations, pet protection, and reunification efforts within their communities and regions. Sponsor presence is visible without feeling like advertising.
+
+CMS block: generic-split-section
+
+Section 3 — Regional Funding Concept
+Section 3RegionalModel
+  CMS-EDITABLE  
+Section title: Your Dollars Work Where Animals Live
+
+Body:
+When a sponsor funds a region, that investment directly supports the shelters, rescues, and pet families in that specific geography. Shelter directors in your community know your name. Pet owners registering their animals in your region see your organization as part of the infrastructure keeping them safe. This is local investment with visible, verifiable impact.
+
+CMS block: generic-split-section or generic-stats-section if region metrics are available
+
+Section 4 — Sponsorship Options
+Section 4SponsorshipOptions
+  CMS-EDITABLE  
+Section title: Ways to Get Involved
+Regional infrastructure underwriting
+Shelter and rescue sponsorship programs
+Community pet protection initiatives
+Event and awareness partnerships
+
+CMS block: generic-grid-section  |  item_style: card
+Future consideration: region-selector or map visualization as regional coverage grows. Flag as Ed build item for future phase.
+
+Section 5 — Contact CTA
+Section 5ContactCTA
+  CMS-EDITABLE  
+Headline: Interested in Supporting RescueNet360?
+CTA button: Contact Us About Sponsorship Opportunities  →  /contact
+CMS block: generic-section with primary CTA
+
+Page 5: About / Mission   /about
+Purpose: Build trust, communicate mission, and introduce the people behind RescueNet360.
+Section 1 — Why This Exists
+Section 1Mission
+  CMS-EDITABLE  
+Section title: Why This Exists
+
+Body:
+Every year, animals die in shelters. Not because there are not people willing to help, but because the people who could help cannot see each other. A shelter holding a found dog does not know the owner filed a lost report across town. A foster coordinator does not know transport capacity opened up. A rescue does not know a dog is two days from euthanasia at the next county.
+RescueNet360 was built to make those invisible connections visible. Because the gap between life and death for an animal is often just a piece of information that did not move fast enough.
+
+CMS block: generic-rich-text-section or generic-split-section
+
+Section 2 — The Problem We Are Solving
+Section 2The Problem
+  CMS-EDITABLE  
+Section title: Animal Welfare Data Is Too Fragmented
+
+Body:
+Animal welfare data and workflows are spread across thousands of disconnected systems. Each organization maintains its own records. When an animal moves from one organization to another, its identity resets. Medical history fragments. Custody chains break. Reunification slows.
+This is not a software failure inside any single organization. The failure occurs between systems. RescueNet360 sits above existing shelter software as the horizontal coordination layer the ecosystem has never had.
+
+CMS block: generic-split-section
+
+Section 3 — Why Now
+Section 3Why Now
+  CMS-EDITABLE  
+Section title: The Need Is Measurable
+
+Body:
+Approximately 6 to 7 million animals enter U.S. shelters each year. An estimated 920,000 are euthanized annually. A significant contributing factor is not insufficient resources. It is the absence of persistent identity across the organizations that serve those animals.
+Shelters and rescues are being asked to do more with limited resources and growing operational complexity. The tools to coordinate that work at scale have not existed. Until now.
+OPEN QUESTION for Misty: Please confirm source for the 920,000 euthanasia stat (ASPCA? Shelter Animals Count?) so we can cite it correctly on the live page.
+
+CMS block: generic-stats-section or generic-split-section
+
+Section 4 — Founder Story
+Section 4FounderStory
+  CMS-EDITABLE  
+Section title: Why Misty Built This
+
+Body (Misty's full story — use exactly as written):
+I kept seeing missing dog posts on Nextdoor. Over and over, like digital lost-and-found flyers. But one stood out. An elderly dog had gone missing, and her owner posted relentlessly, day after day, searching and hoping. And I felt it. That ache. That helpless pain of not knowing.
+I messaged the owner and offered to go door to door. I just wanted to help bring her dog home. She gently declined. I think she already knew, deep down, her pup was not coming back. When I asked if I could share her story to help others, she said no. She said, 'If you share it... that means she's really gone.'
+That moment changed everything. I had not even thought of it that way. I was hoping for a happy ending. But it never came. That is when something in me shifted.
+Because what happens next for dogs like hers is unthinkable. They end up in a shelter. Cold. Confused. Hungry. Waiting behind metal bars for someone they know. After a few days, they give up. They shut down. And too often, they are euthanized. Scared. Alone. Forgotten.
+That is not a peaceful death. That is a system failure. I could not ignore it anymore. I am a compassionate person. A fixer. A builder. And I knew this system, this heartbreaking cycle, was something I could help change. So I started RescueNet360.
+Because no pet should disappear without a chance. No family should wonder if they gave up too soon. And no shelter should have to choose who lives or dies because they are out of space.
+— Misty Harrison, Founder of RescueNet360
+
+CMS block: generic-rich-text-section  |  Display as pull quote or editorial block with founder photo
+
+Section 5 — Meet the Team
+Section 5Team Bios
+  CMS-EDITABLE  
+Misty Harrison — Founder and CEO
+Misty Harrison is the Founder and CEO of RescueNet360, a Public Benefit Corporation building the coordination infrastructure animal welfare has never had. She brings 19 years of technical and operational experience spanning Microsoft, ADP, Practitioners Publishing Company, Boy Scouts of America National HQ, and AutoRealty.
+At RescueNet360, Misty owns product vision, brand, business architecture, and the sponsor underwriting model that keeps the platform permanently free for shelters and rescues. She originated the concept of persistent digital pet identity assigned through facial recognition, the core innovation that makes cross-organizational reunification possible at scale.
+
+Ed — Co-Founder and CTO
+Ed is the Co-Founder and CTO of RescueNet360, and the engineer who built it. He brings 30 years of experience across the full technology stack. At RescueNet360, Ed single-handedly built the production platform in six months while maintaining his full-time career.
+Ed's display name and full bio at the discretion of the team. Full bio text is in Misty's version of the content map.
+
+Melanie — [Title]
+[Melanie to provide her own bio here.]
+
+CMS block: generic-split-section  |  Add team photos when available
+
+Page 6: Contact   /contact
+Purpose: Simple routing page for general inquiries, pilot interest, sponsor interest, and support questions.
+Section 1 — General Contact
+Section 1General
+  CMS-EDITABLE  
+Questions, feedback, or ideas? We read every message and respond to every one.
+
+CMS block: generic-contact-section
+
+Section 2 — Pilot Interest
+Section 2PilotInterest
+  CMS-EDITABLE  
+Interested in becoming a pilot partner? We would love to learn more about your organization and workflows.
+CTA: Apply for Pilot Access  →  /shelters-rescues  (routes to form, not a separate form)
+
+CMS block: generic-contact-section
+
+Section 3 — Sponsor Interest
+Section 3SponsorInterest
+  CMS-EDITABLE  
+Interested in sponsorship opportunities? Contact us to discuss regional support, underwriting models, and how your organization can become part of the infrastructure protecting animals in your community.
+CTA: Contact Sponsorship Team  →  routes to email or embedded contact form
+
+CMS block: generic-contact-section
+
+Section 4 — Support Inquiry
+Section 4Support
+  CMS-EDITABLE  
+Need help with a pet profile, lost and found report, or platform question? Reach out to our support team.
+CTA: Contact Support
+
+CMS block: generic-contact-section
+
+Implementation Notes for Ed
+
+URL Structure
+/   —   Home
+/shelters-rescues   —   Shelters & Rescues (do not use /pilot in the URL)
+/pet-owners   —   Pet Owners
+/sponsors   —   Sponsors & Partners
+/about   —   About / Mission
+/contact   —   Contact
+
+Post-Pilot Transition
+The Shelters & Rescues page is intentionally built to transition without a rebuild. Only two things need to change when the pilot phase ends:
+Section 4 (Shape the Standard): Melanie swaps headline, body copy, and bullet list via CMS. No dev work.
+CTA button labels in Section 1 and Section 5: Must be CMS-editable so Melanie can update without a code change.
+
+Form Handler
+Route submissions to pilot@rescuenet360.com
+Consider also routing to a CRM or Jira intake point for tracking
+CTA button label field must be CMS-editable
+Keep form to 5 fields only as specified
+
+Open Question for Misty
+The following items need a decision or input from Misty before this document is finalized:
+Euthanasia statistic source (Section 3, About): confirm whether 920,000 figure is from ASPCA, Shelter Animals Count, or another source so it can be cited correctly.
+
+
+SEO Titles and Descriptions
+Page 1 — Home
+Field
+Copy
+Characters
+seo_meta_title
+RescueNet360 – Animal Shelter & Rescue Management Software
+58
+seo_meta_description
+Connect intake, foster, transport, reunification, and pet identity into one system. Built for animal shelters and rescues. Apply to be a pilot partner.
+152
+
+Page 2 — Shelters & Rescues
+Field
+Copy
+Characters
+seo_meta_title
+Shelter & Rescue Management Software – RescueNet360
+52
+seo_meta_description
+Stop managing animal welfare across spreadsheets and disconnected systems. RescueNet360 connects intake, foster, transport, and reunification in one place.
+156
+
+Page 3 — Pet Owners
+Field
+Copy
+Characters
+seo_meta_title
+Register Your Pet & Report Lost or Found – RescueNet360
+55
+seo_meta_description
+Create your pet's permanent digital profile. Register, report lost or found pets, and get matched with shelters and rescues that can help bring them home.
+155
+
+Page 4 — Sponsors & Partners
+Field
+Copy
+Characters
+seo_meta_title
+Sponsor Animal Welfare Infrastructure – RescueNet360
+52
+seo_meta_description
+Fund the coordination tools that protect animals in your community. RescueNet360 sponsors are woven into regional animal welfare infrastructure, not pasted on top.
+165
+
+Page 5 — About
+Field
+Copy
+Characters
+seo_meta_title
+About RescueNet360 – Why We Built This
+39
+seo_meta_description
+RescueNet360 was built to close the gaps that cost animals their lives. Learn about the mission, the team, and the coordination problem we exist to solve.
+152
+
+Page 6 — Contact
+Field
+Copy
+Characters
+seo_meta_title
+Contact RescueNet360 – Pilots, Sponsors & Support
+50
+seo_meta_description
+Questions about RescueNet360? Reach out about pilot partnerships, sponsorship opportunities, or platform support. We read every message and respond to every one.
+163
+
+RescueNet360, PBC  |  rescuenet360.com  |  Confidential  |  June 2026

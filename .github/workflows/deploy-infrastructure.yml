@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - master
     paths:
       - 'infrastructure/**'
   workflow_dispatch:
@@ -57,17 +58,17 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name == 'push'
         run: terraform apply -auto-approve tfplan
 
       - name: Terraform Output
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name == 'push'
         id: output
         run: |
           echo "website_url=$(terraform output -raw website_url)" >> $GITHUB_OUTPUT
 
       - name: Deployment summary
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name == 'push'
         run: |
           echo "✅ Infrastructure deployed successfully!"
           echo "Website URL: ${{ steps.output.outputs.website_url }}"

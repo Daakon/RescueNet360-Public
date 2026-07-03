@@ -1,57 +1,57 @@
 import { Link } from 'react-router-dom';
-import { CONTACT_EMAIL, FOOTER_COMPANY_NAV, FOOTER_SITE_NAV } from '../config/navigation';
 
 export const SiteFooter = () => {
   return (
-    <footer className="border-t border-[rgba(154,168,186,0.35)] bg-[linear-gradient(155deg,#121a24_0%,#1c2633_100%)] py-12 text-white/80">
-      <div className="wrap">
-        <div className="grid gap-8 md:grid-cols-4">
-          <div>
-            <img
-              src="https://cdn.prod.website-files.com/688d4c9cd641b90f2540ee43/690ab2a4ef92467957e84474_Untitled%20design%20(73).png"
-              alt="RescueNet360 logo"
-              className="h-10 w-auto"
-            />
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
-              Persistent identity infrastructure for animal welfare — one record, every shelter, no data loss.
+    <footer className="dark bg-bg py-16 text-text-secondary border-t border-separator">
+      <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12 border-b border-separator pb-12">
+          <div className="md:col-span-1">
+            <Link to="/" className="flex items-center gap-3 mb-4 inline-flex">
+              <img
+                src="/images/icons/shield-logo-white.svg"
+                alt="RescueNet360 Shield Logo"
+                className="h-8 w-auto"
+              />
+              <span className="text-2xl font-extrabold font-display leading-tight text-white">
+                <span className="text-primary">Rescue</span><span className="text-secondary">Net</span>360
+              </span>
+            </Link>
+            <p className="text-sm text-text-secondary leading-relaxed">
+              The operational backbone connecting shelters, rescues, and pet owners into one unified network.
             </p>
           </div>
 
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-white/60">Site</p>
-            <div className="mt-3 flex flex-col gap-2">
-              {FOOTER_SITE_NAV.map((item) => (
-                <Link key={item.to} to={item.to} className="text-sm text-white/80 transition-colors hover:text-teal">
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+            <h4 className="text-white font-bold mb-4 font-display text-sm tracking-wider uppercase">Audience Paths</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/shelters-rescues" className="hover:text-white transition-colors">Shelters &amp; Rescues</Link></li>
+              <li><Link to="/pet-owners" className="hover:text-white transition-colors">Pet Owners</Link></li>
+              <li><Link to="/sponsorship" className="hover:text-white transition-colors">Sponsors &amp; Partners</Link></li>
+            </ul>
           </div>
 
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-white/60">Company</p>
-            <div className="mt-3 flex flex-col gap-2">
-              {FOOTER_COMPANY_NAV.map((item) => (
-                <Link key={item.to} to={item.to} className="text-sm text-white/80 transition-colors hover:text-teal">
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+            <h4 className="text-white font-bold mb-4 font-display text-sm tracking-wider uppercase">Platform</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/about" className="hover:text-white transition-colors">About &amp; Mission</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+              <li><Link to="/pilot-program" className="hover:text-white transition-colors">Apply for Pilot</Link></li>
+            </ul>
           </div>
 
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.12em] text-white/60">Connect</p>
-            <div className="mt-3 flex flex-col gap-2 text-sm">
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-white/80 transition-colors hover:text-teal">
-                {CONTACT_EMAIL}
-              </a>
-              <p className="text-white/60">Public-benefit oriented platform initiative.</p>
-            </div>
+            <h4 className="text-white font-bold mb-4 font-display text-sm tracking-wider uppercase">Legal &amp; Policy</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link to="/accessibility" className="hover:text-white transition-colors">Accessibility</Link></li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/10 pt-6 text-xs text-white/55">
-          <p>{new Date().getFullYear()} RescueNet360. Innovation that saves lives.</p>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted">
+          <p>&copy; {new Date().getFullYear()} RescueNet360, PBC. All rights reserved.</p>
+          <p>Built to connect. Protected by purpose.</p>
         </div>
       </div>
     </footer>

@@ -1,248 +1,322 @@
-import { Link } from 'react-router-dom';
-
-const problemStats = [
-  { value: '920,000', label: 'pets euthanized annually — 30% were lost, not stray' },
-  { value: '6–7M', label: 'animals enter shelters each year with no shared identity layer' },
-  { value: '$3.5B', label: 'spent annually on animal welfare with zero shared infrastructure' },
-];
-
-const workflowSteps = [
-  {
-    title: 'Create Identity',
-    description: 'Owner or shelter creates a pet identity record with a front-face photo. Persistent ID is generated.',
-  },
-  {
-    title: 'Mark Active-Lost',
-    description: 'Pet is marked \'Active-Lost.\' The platform triggers notifications to relevant connected shelters.',
-  },
-  {
-    title: 'Cross-Reference',
-    description: 'When a stray arrives at any connected shelter, the intake photo is cross-referenced automatically.',
-  },
-  {
-    title: 'Surface Match',
-    description: 'A match candidate surfaces in the shelter\'s Reunification Center with a confidence score.',
-  },
-];
-
-const faqs = [
-  {
-    question: 'If shelters are free, how does RescueNet360 make money?',
-    answer: 'Shelters access the core identity and coordination platform at no cost — forever. Revenue comes from enterprise partnerships, sponsor integrations, API licensing for third-party developers, and premium coordination modules for regional transport networks and foster management SaaS. The free tier creates the network effect. The enterprise layer monetizes it.'
-  },
-  {
-    question: 'Is RescueNet360 available nationwide?',
-    answer: 'RescueNet360 is currently in phased pilot mode, with regional rollout based on partner readiness and coordinated onboarding capacity.',
-  },
-  {
-    question: 'Does this replace existing shelter software?',
-    answer: 'No. RescueNet360 is a coordination layer that connects workflows across existing systems to improve visibility, handoffs, and response speed.',
-  },
-];
+import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { SectionWrapper, Container, ContentGrid } from '../components/LayoutWrappers';
+import { submitPilotApplication } from '../../utils/api';
 
 export const SheltersPage = () => {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+  const [formData, setFormData] = useState({
+    orgName: '',
+    contactName: '',
+    email: '',
+    orgType: 'shelter',
+    challenge: '',
+  });
+
+  useEffect(() => {
+    if (window.location.hash === '#apply') {
+      setTimeout(() => {
+        const el = document.getElementById('apply');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+    try {
+      await submitPilotApplication({
+        orgName: formData.orgName,
+        contactName: formData.contactName,
+        email: formData.email,
+        orgType: formData.orgType,
+        challenge: formData.challenge,
+        source: 'pilot-application',
+      });
+      setFormSubmitted(true);
+    } catch (err) {
+      setError(err?.message || 'Something went wrong while submitting your application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="bg-[#060606] text-white">
-      {/* Dark SaaS Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden border-b border-white/5 py-20 px-5 lg:px-8 xl:px-0">
-        <div 
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 70% 60% at 75% 40%, rgba(31,199,182,0.06) 0%, transparent 70%), linear-gradient(180deg, #060606 0%, #0D0D0D 60%, #111111 100%)'
-          }}
-        />
-        
-        <div className="wrap relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center pt-8">
-          {/* Left Content */}
-          <div className="max-w-[580px]">
-            <p className="text-[13px] font-bold tracking-[0.16em] uppercase text-[#1fc7b6] mb-4">
-              IDENTITY INFRASTRUCTURE FOR ANIMAL WELFARE
-            </p>
-            <h1 className="text-5xl lg:text-[72px] font-extrabold leading-[1.05] tracking-tight mb-6">
-              The coordination layer animal welfare has always needed.
-            </h1>
-            <p className="text-lg lg:text-xl text-[#aab8ca] leading-relaxed mb-8">
-              RescueNet360 creates a persistent digital identity for every animal — one shared record that moves with the pet across shelters, rescues, fosters, vets, and owners. No data gaps. No duplicate intake. No avoidable euthanasia.
-            </p>
-            
-            <div className="flex flex-wrap gap-4 mb-8">
-              <Link to="/contact?type=shelter_rescue" className="inline-flex items-center rounded-full bg-gradient-to-br from-[#2a3442] to-[#171d27] border border-[#9aa8ba]/50 text-white px-6 py-3.5 font-bold text-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(15,118,110,0.42),0_12px_28px_rgba(7,12,18,0.42)] transition-all hover:translate-y-[-1px] hover:border-[#1fc7b6]/80 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-1px_0_rgba(31,199,182,0.55),0_16px_34px_rgba(7,12,18,0.52)]">
-                → Become a Pilot Partner
-              </Link>
-              <Link to="/contact?type=investor" className="inline-flex items-center rounded-full bg-gradient-to-br from-[#f8fbff] to-[#e3ebf4] border border-[#aab8ca] text-[#162235] px-6 py-3.5 font-bold text-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_10px_24px_rgba(15,23,42,0.14)] transition-all hover:translate-y-[-1px] hover:bg-gradient-to-br hover:from-[#f4f8fd] hover:to-[#dbe4ef]">
-                → Request Investor Brief
-              </Link>
-            </div>
-            
-            <div className="text-[13px] font-medium text-[#4F4F51] flex flex-wrap gap-x-4 gap-y-2">
-              <span className="flex items-center gap-1.5"><strong className="text-white">✓</strong> Functional MVP</span>
-              <span className="flex items-center gap-1.5"><strong className="text-white">✓</strong> Patent-pending (74 claims)</span>
-              <span className="flex items-center gap-1.5"><strong className="text-white">✓</strong> Public Benefit Corporation</span>
-              <span className="flex items-center gap-1.5"><strong className="text-white">✓</strong> Free for shelters, forever</span>
-            </div>
-          </div>
-          
-          {/* Right Visual (Hybrid Dog + UI) */}
-          <div className="relative h-[400px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end">
-            <img 
-              src="https://images.unsplash.com/photo-1589965716319-4a041b58faf8?q=80&w=1974&auto=format&fit=crop" 
-              alt="Working dog profile" 
-              className="absolute right-0 top-1/2 -translate-y-1/2 h-[360px] lg:h-[480px] w-auto opacity-80 mix-blend-screen"
-              style={{ filter: 'grayscale(8%) contrast(1.05)', maskImage: 'linear-gradient(to left, black 50%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, black 50%, transparent 100%)' }}
-            />
-            {/* The UI CSS mockup layer */}
-            <div className="absolute right-0 lg:-right-10 top-[20%] w-[90%] lg:w-[520px] rounded-2xl border border-white/10 bg-[#141414]/90 backdrop-blur-md shadow-[0_20px_80px_rgba(31,199,182,0.15),0_0_60px_rgba(31,199,182,0.08),0_10px_40px_rgba(0,0,0,0.6)] p-1 transition-transform duration-700 hidden lg:block" style={{ transform: 'perspective(1200px) rotateY(-12deg) rotateX(3deg)' }}>
-               {/* UI Header */}
-               <div className="flex border-b border-white/5 p-4 items-center justify-between">
-                 <div className="flex items-center gap-3">
-                   <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-xl overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=154&auto=format&fit=crop" alt="Sunny" className="w-full h-full object-cover" />
-                   </div>
-                   <div>
-                     <div className="text-white font-bold text-sm">Sunny</div>
-                     <div className="text-[#aab8ca] text-xs">Pet Identity Profile</div>
-                   </div>
-                 </div>
-                 <div className="relative">
-                   <span className="bg-[#1fc7b6]/20 border border-[#1fc7b6]/30 text-[#1fc7b6] text-xs px-2 py-0.5 rounded font-mono">ID: 35f84a37</span>
-                   <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#1fc7b6] animate-ping" />
-                 </div>
-               </div>
-               
-               <div className="p-4 grid gap-3">
-                 <div className="bg-white/5 rounded-lg p-3 border border-white/5">
-                   <div className="text-xs text-[#aab8ca] mb-1">Core Vitals</div>
-                   <div className="flex gap-4">
-                     <div><strong className="block text-white text-sm">Canine</strong><span className="text-[10px] text-slate-500">Species</span></div>
-                     <div><strong className="block text-white text-sm">Golden Ret.</strong><span className="text-[10px] text-slate-500">Breed Info</span></div>
-                     <div><strong className="block text-white text-sm">Yes</strong><span className="text-[10px] text-slate-500">Microchipped</span></div>
-                   </div>
-                 </div>
-                 
-                 <div className="bg-white/5 rounded-lg p-3 border border-white/5">
-                   <div className="flex items-center justify-between mb-2">
-                     <div className="text-xs text-[#aab8ca]">Priority Actions</div>
-                     <span className="bg-[#FF3B30]/20 text-[#FF3B30] text-[10px] px-1.5 py-0.5 rounded font-bold">1 URGENT</span>
-                   </div>
-                   <div className="flex items-center gap-2 text-xs text-white bg-black/40 p-2 rounded">
-                     <div className="w-1.5 h-1.5 rounded-full bg-[#FF3B30]" />
-                     Review Identity Cluster Candidate (94% Match)
-                   </div>
-                 </div>
-               </div>
-            </div>
-            {/* Mobile Fallback UI (No tilt) */}
-            <div className="absolute top-[20%] w-[90%] rounded-2xl border border-white/10 bg-[#141414]/90 backdrop-blur-md shadow-[0_20px_80px_rgba(31,199,182,0.15),0_0_60px_rgba(31,199,182,0.08),0_10px_40px_rgba(0,0,0,0.6)] p-1 block lg:hidden">
-               {/* Simplified mobile UI mockup */}
-               <div className="flex border-b border-white/5 p-4 items-center justify-between">
-                 <div className="flex items-center gap-3">
-                   <div className="h-10 w-10 rounded-full bg-slate-800 overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=154&auto=format&fit=crop" alt="Sunny" className="w-full h-full object-cover" />
-                   </div>
-                   <div>
-                     <div className="text-white font-bold text-sm">Sunny</div>
-                     <div className="text-[#aab8ca] text-[10px]">Persistent ID: 35f84a37</div>
-                   </div>
-                 </div>
-                 <span className="bg-[#FF3B30]/20 text-[#FF3B30] text-[10px] px-2 py-1 rounded font-bold">URGENT</span>
-               </div>
-               <div className="p-4 text-xs text-[#aab8ca]">
-                 <div className="flex items-center gap-2 mb-2"><div className="w-2 h-2 rounded-full border border-white/30" /> 1 Match Candidate Pending</div>
-                 <div className="flex items-center gap-2"><div className="w-2 h-2 rounded-full border border-white/30" /> Custody State: In Transit</div>
-               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="bg-surface w-full min-h-screen">
+      <Helmet>
+        <title>Shelter & Rescue Management Software – RescueNet360</title>
+        <meta name="description" content="Stop managing animal welfare across spreadsheets and disconnected systems. RescueNet360 connects intake, foster, transport, and reunification in one place." />
+      </Helmet>
 
-      {/* Stats Section */}
-      <section className="py-12 border-b border-[#2C2B30] bg-[#111111]">
-        <div className="wrap text-center">
-          <div className="grid gap-6 md:grid-cols-3">
-            {problemStats.map((item) => (
-              <div key={item.label} className="flex flex-col items-center">
-                <strong className="block text-4xl font-extrabold text-[#1fc7b6] mb-2">{item.value}</strong>
-                <span className="text-sm text-[#aab8ca] max-w-[200px]">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Proof Section */}
-      <section className="py-20 bg-[#060606]">
-        <div className="wrap">
-          <p className="kicker mb-3">THE PLATFORM — FUNCTIONAL AND PILOT-READY</p>
-          <h2 className="text-4xl font-extrabold text-white mb-4 leading-tight">This is not a mockup.</h2>
-          <p className="text-[#aab8ca] max-w-2xl text-lg mb-12">
-            RescueNet360 is functional today and ready for pilot partners. Below are real workflows from our platform — persistent identity, reunification pipelines, and multi-shelter coordination infrastructure.
+      {/* Section 1 — Hero */}
+      <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator relative overflow-hidden" border={false}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(13,148,136,0.1),_transparent_60%)] pointer-events-none" />
+        <Container className="relative z-10 max-w-5xl mx-auto">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-extrabold uppercase tracking-wider bg-secondary-soft text-secondary-deep rounded-pill shadow-sm">
+            BUILT FOR ANIMAL WELFARE
+          </span>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-text-primary">
+            The Connected System Built for <span className="text-primary underline decoration-secondary decoration-4 underline-offset-8">Animal Shelters and Rescues</span>
+          </h1>
+          <p className="text-lg md:text-xl text-text-secondary font-medium leading-relaxed mb-10 max-w-3xl mx-auto">
+            Track animals. Coordinate care. Reunite pets faster. <span className="text-secondary font-bold">All in one place.</span> RescueNet360 connects animal records, intake workflows, foster coordination, transport, and reunification into a single operational system.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="#apply" className="btn btn-primary min-h-[56px] px-8 text-lg flex items-center justify-center font-bold shadow-elevated hover:scale-105 transition-transform">
+              Apply to Be a Pilot Partner →
+            </a>
+          </div>
+        </Container>
+      </SectionWrapper>
 
-          <div className="bg-[#111111] border border-white/10 rounded-2xl p-6 lg:p-10 mb-20 shadow-2xl relative overflow-hidden">
-            {/* The REAL WORKFLOW section */}
-            <p className="kicker mb-3">REAL WORKFLOW — FROM LOST TO REUNITED</p>
-            <h3 className="text-2xl font-bold text-white mb-8">How a lost dog finds its way home — through a system, not luck.</h3>
-            
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4 relative z-10">
-              {workflowSteps.map((step, idx) => (
-                <div key={idx} className="bg-[#2C2B30]/50 border border-white/5 rounded-xl p-5 hover:bg-[#2C2B30] transition-colors">
-                  <div className="text-[#1fc7b6] font-mono text-sm mb-3 font-semibold">Step {idx + 1}</div>
-                  <h4 className="text-white font-bold mb-2">{step.title}</h4>
-                  <p className="text-sm text-[#D6D6D6] leading-relaxed">{step.description}</p>
+      {/* Section 2 — Problem Statement */}
+      <SectionWrapper background="surface" className="py-20 border-b border-separator">
+        <Container>
+          <div className="w-full">
+            <div className="text-center mb-12">
+              <span className="inline-block px-3 py-1 mb-3 text-xs font-extrabold uppercase tracking-wider bg-primary-soft/40 text-primary rounded-pill">
+                THE CHALLENGE
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-4">
+                Animal welfare shouldn&apos;t be this fragmented
+              </h2>
+              <p className="text-lg text-text-secondary leading-relaxed">
+                Most shelters and rescues are managing critical work across a mix of spreadsheets, emails, paper notes, separate software, and individual memory. That means:
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                { title: 'Records Are Scattered', desc: 'Duplicated work and slow handoffs between teams.' },
+                { title: 'Coordination Is Hard', desc: 'Limited visibility across partner organizations.' },
+                { title: 'Lost Pets Are Hard to Match', desc: 'Missed reunification windows that could have been caught.' },
+                { title: 'Decisions Get Delayed', desc: 'Harder decisions made with incomplete information.' },
+                { title: 'Staff Time Drained', desc: 'Staff time spent chasing data instead of helping animals.' },
+                { title: 'Vulnerable Institutional Knowledge', desc: 'Knowledge lives in one person\'s head and leaves when they do.' }
+              ].map((point, i) => (
+                <div key={i} className="card card-comfortable bg-surface-elevated border border-separator flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 p-2">
+                    <img src={`/images/icons/RescueNetIcons-Color-0${i + 1}.svg`} alt={point.title} className="w-8 h-8 object-contain" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-text-primary text-base mb-1">{point.title}</h3>
+                    <p className="text-text-secondary text-sm leading-relaxed">{point.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
-            
-            <p className="mt-8 text-sm italic text-[#aab8ca] text-center border-t border-white/10 pt-8 relative z-10">
-              "Every step above is functional in the platform today. No waiting. No spreadsheets. No data loss when an animal crosses shelter boundaries."
+          </div>
+        </Container>
+      </SectionWrapper>
+
+      {/* Section 3 — What RescueNet360 Does */}
+      <SectionWrapper background="surface-muted" className="py-20">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-block px-3 py-1 mb-3 text-xs font-extrabold uppercase tracking-wider bg-primary-soft/40 text-primary rounded-pill">
+              WHAT YOU CAN DO
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-4">
+              One Platform. One Shared Source of Truth.
+            </h2>
+            <p className="text-text-secondary text-lg">
+              When your systems are connected, your team stops fighting the data and starts making better decisions for animals. Manage the full lifecycle of every animal in one place:
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* FAQs Section */}
-      <section className="py-20 bg-[#111111] border-t border-[#2C2B30]">
-        <div className="wrap max-w-4xl">
-          <p className="kicker mb-3 text-center">Frequently Asked Questions</p>
-          <h2 className="text-4xl font-extrabold text-white mb-10 text-center">Common Questions</h2>
-          <div className="grid gap-4">
-            {faqs.map((faq) => (
-              <details key={faq.question} className="bg-[#060606] border border-white/10 rounded-xl p-6 group">
-                <summary className="font-bold text-lg text-white cursor-pointer list-none flex justify-between items-center outline-none">
-                  {faq.question}
-                  <span className="text-[#1fc7b6] group-open:rotate-45 transition-transform duration-200">+</span>
-                </summary>
-                <div className="mt-4 text-[#aab8ca] leading-relaxed pr-8 border-t border-white/5 pt-4">
-                  {faq.answer}
+          <ContentGrid columns={4} className="max-w-6xl mx-auto">
+            {[
+              { title: 'Track Every Animal', desc: 'From intake to adoption, keep a complete, real-time record.' },
+              { title: 'Persistent Pet Identity', desc: 'Rich records with photos, documents, and verified medical history.' },
+              { title: 'Match Lost & Found Faster', desc: 'Automated confidence-scored reunification matching alerts.' },
+              { title: 'Manage Fosters & Transports', desc: 'Coordinate placements and movements across teams with ease.' },
+              { title: 'Keep Records Organized', desc: 'Access verified medical and ownership history when you need it.' },
+              { title: 'Public Profiles & Adoptions', desc: 'Showcase pets and accept digital adoption applications.' },
+              { title: 'Coordinate Across Teams', desc: 'Stay aligned with partners, volunteers, and staff seamlessly.' },
+              { title: 'Reduce Manual Work', desc: 'Eliminate duplicate data entry and save valuable operational time.' },
+            ].map((item, idx) => (
+              <div key={idx} className="card card-comfortable bg-surface-elevated border border-separator hover:border-primary transition-all shadow-card">
+                <div className="w-10 h-10 rounded-pill bg-primary-soft/50 text-primary flex items-center justify-center font-extrabold mb-4 text-lg">
+                  ✦
                 </div>
-              </details>
+                <h3 className="text-lg font-bold mb-2 text-text-primary">{item.title}</h3>
+                <p className="text-sm text-text-secondary leading-relaxed">{item.desc}</p>
+              </div>
             ))}
-          </div>
-        </div>
-      </section>
+          </ContentGrid>
+        </Container>
+      </SectionWrapper>
 
-      {/* Pilot CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-[#060606] to-[#0A1313] border-t border-[#1fc7b6]/20 text-center relative overflow-hidden">
-        {/* Glow */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-3/4 h-64 bg-[#1fc7b6]/10 blur-[100px] pointer-events-none" />
-        
-        <div className="wrap relative z-10 max-w-3xl">
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-6 tracking-tight">
-            We are selecting pilot partners for Q2 2026.
-          </h2>
-          <p className="text-[#aab8ca] text-lg lg:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
-            Pilot shelters get full platform access at no cost — and become part of building the national infrastructure for animal welfare. Applications are reviewed individually.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact?type=shelter_rescue" className="btn-primary px-8">
-              Apply as Pilot Partner
-            </Link>
-            <Link to="/contact?type=investor" className="btn-secondary px-8">
-              Request Investor Brief
-            </Link>
+      {/* Section 4 — Pilot Section (Shape the Standard) */}
+      <SectionWrapper background="surface" className="py-20 border-t border-separator">
+        <Container>
+          <div className="bg-primary-deep rounded-xl p-8 md:p-14 text-white shadow-elevated border border-primary/30 max-w-5xl mx-auto">
+            <div className="max-w-3xl">
+              <span className="inline-block px-3 py-1 mb-4 text-xs font-extrabold uppercase tracking-wider bg-secondary text-white rounded-pill">
+                PILOT PROGRAM
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-6 text-white">
+                Help Shape the Future of Animal Welfare
+              </h2>
+              <p className="text-white/90 text-lg leading-relaxed mb-6">
+                RescueNet360 is inviting shelters and rescue organizations to join our pilot program and be part of something bigger. Test real workflows, share honest feedback, and help us prioritize what matters most.
+              </p>
+              <p className="text-white/90 text-lg leading-relaxed mb-8">
+                We are not asking you to replace everything overnight. We are asking you to test what exists, tell us what works, and help build something that actually fits the way your team operates.
+              </p>
+              
+              <div className="space-y-6 pt-6 border-t border-white/20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-white/90">
+                  <div className="flex items-center gap-3 bg-black/20 p-4 rounded-lg border border-white/10">
+                    <span className="text-secondary font-extrabold text-xl">✓</span> Free Early Access during development
+                  </div>
+                  <div className="flex items-center gap-3 bg-black/20 p-4 rounded-lg border border-white/10">
+                    <span className="text-secondary font-extrabold text-xl">✓</span> Test in Real Workflows with direct support
+                  </div>
+                  <div className="flex items-center gap-3 bg-black/20 p-4 rounded-lg border border-white/10">
+                    <span className="text-secondary font-extrabold text-xl">✓</span> Provide Feedback that shapes development
+                  </div>
+                  <div className="flex items-center gap-3 bg-black/20 p-4 rounded-lg border border-white/10">
+                    <span className="text-secondary font-extrabold text-xl">✓</span> Be a Founding Partner in the connected network
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <a href="#apply" className="btn btn-secondary text-lg px-8 py-4 font-extrabold shadow-elevated hover:scale-105 transition-transform inline-flex items-center gap-2">
+                    Apply to Be a Pilot Partner →
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </SectionWrapper>
+
+      {/* Section 5 — Application Form */}
+      <SectionWrapper id="apply" background="surface-muted" className="py-20">
+        <Container size="narrow">
+          <div className="card card-comfortable bg-surface-elevated p-8 md:p-12 rounded-xl border border-separator shadow-elevated">
+            <div className="text-center mb-8">
+              <span className="inline-block px-3 py-1 mb-3 text-xs font-extrabold uppercase tracking-wider bg-primary-soft/40 text-primary rounded-pill">
+                READY TO BE PART OF IT?
+              </span>
+              <h2 className="font-display text-3xl font-extrabold text-text-primary mb-2">
+                Apply for Pilot Access
+              </h2>
+              <p className="text-text-secondary">
+                Join the pilot program and help build a better future for animals. Tell us about your organization below.
+              </p>
+            </div>
+
+            {formSubmitted ? (
+              <div className="p-8 text-center bg-state-success-bg rounded-lg border border-state-success">
+                <div className="w-16 h-16 bg-state-success text-white rounded-pill flex items-center justify-center mx-auto mb-4 text-2xl font-extrabold">✓</div>
+                <h3 className="text-2xl font-bold text-state-success-text mb-2">Application Received!</h3>
+                <p className="text-state-success-text font-medium">Thank you for applying to be a founding pilot partner. Our team will review your organization&apos;s details and reach out shortly.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {error && (
+                  <div className="p-4 bg-state-danger-bg text-state-danger-text rounded-lg border border-state-danger text-sm font-bold">
+                    {error}
+                  </div>
+                )}
+
+                <div>
+                  <label htmlFor="orgName" className="block text-sm font-bold text-text-primary mb-2">Organization Name *</label>
+                  <input 
+                    id="orgName"
+                    type="text" 
+                    required 
+                    className="w-full px-4 py-3 rounded-lg border border-separator-strong focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-surface text-text-primary"
+                    placeholder="e.g. Hope Valley Animal Rescue"
+                    value={formData.orgName}
+                    onChange={(e) => setFormData({...formData, orgName: e.target.value})}
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="contactName" className="block text-sm font-bold text-text-primary mb-2">Contact Name *</label>
+                    <input 
+                      id="contactName"
+                      type="text" 
+                      required 
+                      className="w-full px-4 py-3 rounded-lg border border-separator-strong focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-surface text-text-primary"
+                      placeholder="Jane Doe"
+                      value={formData.contactName}
+                      onChange={(e) => setFormData({...formData, contactName: e.target.value})}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-bold text-text-primary mb-2">Email Address *</label>
+                    <input 
+                      id="email"
+                      type="email" 
+                      required 
+                      className="w-full px-4 py-3 rounded-lg border border-separator-strong focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-surface text-text-primary"
+                      placeholder="jane@hopevalley.org"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="orgType" className="block text-sm font-bold text-text-primary mb-2">Organization Type *</label>
+                  <select 
+                    id="orgType"
+                    className="w-full px-4 py-3 rounded-lg border border-separator-strong focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-surface text-text-primary"
+                    value={formData.orgType}
+                    onChange={(e) => setFormData({...formData, orgType: e.target.value})}
+                  >
+                    <option value="shelter">Shelter</option>
+                    <option value="rescue">Rescue</option>
+                    <option value="foster-based rescue">Foster-based rescue</option>
+                    <option value="transport org">Transport org</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="challenge" className="block text-sm font-bold text-text-primary mb-2">Tell us about your current setup or biggest challenge *</label>
+                  <textarea 
+                    id="challenge"
+                    required 
+                    rows={4}
+                    className="w-full px-4 py-3 rounded-lg border border-separator-strong focus:ring-2 focus:ring-primary focus:border-primary outline-none bg-surface text-text-primary resize-none"
+                    placeholder="What software do you currently use? What causes the most operational friction for your team?"
+                    value={formData.challenge}
+                    onChange={(e) => setFormData({...formData, challenge: e.target.value})}
+                  />
+                </div>
+
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="btn btn-primary w-full py-4 text-lg font-extrabold shadow-elevated hover:scale-[1.02] transition-transform disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Submitting Application...' : 'Apply to Be a Pilot Partner →'}
+                </button>
+              </form>
+            )}
+          </div>
+        </Container>
+      </SectionWrapper>
+
+      {/* Section 6 — Reassurance Strip */}
+      <SectionWrapper background="surface" className="py-12 border-t border-separator bg-bg-subtle text-center">
+        <Container size="narrow">
+          <p className="text-text-secondary text-sm md:text-base font-medium leading-relaxed">
+            No cost to participate. No obligation beyond honest feedback. RescueNet360 is free for shelters and rescues during pilot and beyond. The platform&apos;s funding model is built on sponsorships, not shelter budgets.
+          </p>
+        </Container>
+      </SectionWrapper>
     </div>
   );
 };
+

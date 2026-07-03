@@ -22,7 +22,7 @@ const Hero = () => {
                 </p>
 
                 <p className="mx-auto mb-8 max-w-[760px] text-base text-chrome-accent md:text-[18px]">
-                    Every year, <strong className="text-teal">607,000 animals are euthanized</strong> in the U.S. Not from neglect — from disconnection. RescueNet360 is the technology and the movement that ends it.
+                    Every year, <strong className="text-teal">607,000 animals are euthanized</strong> in the U.S. Not from neglect — from disconnection. RescueNet is the technology and the movement that ends it.
                 </p>
 
                 <div className="flex gap-3 justify-center flex-wrap mt-4">
@@ -35,3 +35,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

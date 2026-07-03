@@ -6,7 +6,7 @@ const sections = [
   {
     title: 'Privacy Commitment',
     paragraphs: [
-      'RescueNet360 is a Public Benefit Corporation. We handle data to advance reunification, animal welfare, and humane coordination outcomes.',
+      'RescueNet is a Public Benefit Corporation. We handle data to advance reunification, animal welfare, and humane coordination outcomes.',
       'We do not sell personal or identifiable data. We also do not use third-party advertising networks in core life-saving workflows.',
       'Revenue supports mission sustainability through sponsorship and aligned programs, not surveillance or personal-data monetization.',
     ],
@@ -30,7 +30,7 @@ const sections = [
   {
     title: 'Data Sharing and Disclosure',
     paragraphs: [
-      'We may share data with service providers and infrastructure vendors who process information under contract for RescueNet360 operations.',
+      'We may share data with service providers and infrastructure vendors who process information under contract for RescueNet operations.',
       'We may disclose data when required by law, legal process, or urgent safety needs.',
       'We do not sell personal or identifiable data. Public reporting is limited to anonymized, aggregated information that is not reasonably identifiable.',
     ],
@@ -48,13 +48,13 @@ const sections = [
     paragraphs: [
       'Depending on your jurisdiction, you may have rights to access, correct, delete, or receive information about how your data is processed.',
       'California residents may have additional rights under California privacy law, including rights to know, delete, and correct personal information and to opt out of sale or sharing where applicable.',
-      'You may submit privacy requests through contact@rescuenet360.com. We may verify identity before completing certain requests.',
+      'You may submit privacy requests through contact@RescueNet.com. We may verify identity before completing certain requests.',
     ],
   },
   {
     title: 'Children and Sensitive Situations',
     paragraphs: [
-      'RescueNet360 services are generally intended for adults and organizations. If we learn that personal information was collected from a child without required consent, we will take appropriate steps.',
+      'RescueNet services are generally intended for adults and organizations. If we learn that personal information was collected from a child without required consent, we will take appropriate steps.',
       'If you believe sensitive or unsafe data has been submitted in error, contact us promptly so we can review and respond.',
     ],
   },
@@ -65,9 +65,10 @@ export const PrivacyPage = () => {
     <LegalScaffoldPage
       eyebrow="Privacy Policy"
       title="Privacy Policy"
-      intro="This Privacy Policy explains what information RescueNet360 collects, how it is used, and how we protect mission-aligned data rights."
+      intro="This Privacy Policy explains what information RescueNet collects, how it is used, and how we protect mission-aligned data rights."
       metaNote={EFFECTIVE_DATE}
       sections={sections}
     />
   );
 };
+

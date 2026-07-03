@@ -14,7 +14,7 @@ const Market = () => {
                 </h2>
 
                 <p className="lead mx-auto mb-9 max-w-[900px] text-center text-[15px] text-white drop-shadow-sm shadow-black/80 md:text-[18px]">
-                    RescueNet360 isn't another startup — it's a new infrastructure layer for animal welfare. Investors in this bridge help set the standard for every rescue organization in America.
+                    RescueNet isn't another startup — it's a new infrastructure layer for animal welfare. Investors in this bridge help set the standard for every rescue organization in America.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -49,3 +49,4 @@ const Market = () => {
 };
 
 export default Market;
+
