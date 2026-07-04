@@ -1,14 +1,24 @@
 import { SectionWrapper, Container, ContentGrid } from '../components/LayoutWrappers';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 
 export const HomePage = () => {
   return (
     <div className="bg-surface w-full min-h-screen flex flex-col">
-      <Helmet>
-        <title>RescueNet360 – Animal Shelter & Rescue Management Software</title>
-        <meta name="description" content="Connect intake, foster, transport, reunification, and pet identity into one system. Built for animal shelters and rescues. Apply to be a pilot partner." />
-      </Helmet>
+      <SEO
+        title="RescueNet360 | National Pet Identity Infrastructure — Free for Shelters"
+        description="Connect intake, foster, transport, reunification, and pet identity into one system. Built for animal shelters and rescues. 100% Free for shelters."
+        path="/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "RescueNet360 | National Pet Identity Infrastructure",
+          "description": "Connect intake, foster, transport, reunification, and pet identity into one system. Built for animal shelters and rescues.",
+          "url": "https://rescuenet360.com/",
+          "isPartOf": { "@id": "https://rescuenet360.com/#website" },
+          "about": { "@id": "https://rescuenet360.com/#organization" }
+        }}
+      />
 
       {/* Section 1 — Hero */}
       <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 relative overflow-hidden border-b border-separator" border={false}>

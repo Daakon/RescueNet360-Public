@@ -1,9 +1,22 @@
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 import { SectionWrapper, Container } from '../components/LayoutWrappers';
 
 export const PilotProgramPage = () => {
   return (
     <div className="bg-surface w-full min-h-[calc(100vh-80px)]">
+      <SEO
+        title="Pilot Program – RescueNet360 Founding Partners"
+        description="Partner with us to build the coordination infrastructure for modern animal welfare. Apply to be a founding pilot partner."
+        path="/pilot-program"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "The RescueNet360 Pilot Program",
+          "description": "Partner with us to build the coordination infrastructure for modern animal welfare.",
+          "url": "https://rescuenet360.com/pilot-program"
+        }}
+      />
       <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator" border={false}>
         <Container size="narrow">
           <span className="inline-block px-4 py-1.5 mb-6 text-xs font-extrabold uppercase tracking-wider bg-secondary-soft text-secondary-deep rounded-pill">

@@ -1,9 +1,22 @@
 import { SectionWrapper, Container, ContentGrid } from '../components/LayoutWrappers';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 export const HowItWorksPage = () => {
   return (
     <div className="bg-surface w-full min-h-[calc(100vh-80px)]">
+      <SEO
+        title="How It Works – RescueNet360 Architecture"
+        description="Learn how RescueNet360 connects intake, foster coordination, transport, reunification, and pet identity into one persistent system."
+        path="/how-it-works"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "How RescueNet360 Works",
+          "description": "System architecture and coordinated animal recovery workflow for shelters and pet owners.",
+          "url": "https://rescuenet360.com/how-it-works"
+        }}
+      />
       <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator" border={false}>
         <Container size="narrow">
           <span className="inline-block px-4 py-1.5 mb-6 text-xs font-extrabold uppercase tracking-wider bg-secondary-soft text-secondary-deep rounded-pill">

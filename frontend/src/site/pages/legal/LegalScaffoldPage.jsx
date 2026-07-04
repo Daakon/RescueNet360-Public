@@ -1,4 +1,5 @@
 import { PageHero } from '../../components/PageHero';
+import { SEO } from '../../components/SEO';
 
 export const LegalScaffoldPage = ({
   title,
@@ -7,9 +8,23 @@ export const LegalScaffoldPage = ({
   eyebrow = 'Legal',
   cta = null,
   metaNote = 'This policy may be updated as RescueNet services evolve.',
+  path = '',
+  schema,
 }) => {
   return (
     <>
+      <SEO
+        title={`${title} – RescueNet360`}
+        description={metaNote || intro || title}
+        path={path}
+        schema={schema || {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": `${title} – RescueNet360`,
+          "description": metaNote || intro || title,
+          "url": `https://rescuenet360.com${path.startsWith('/') ? path : `/${path}`}`
+        }}
+      />
       <PageHero size="compact" eyebrow={eyebrow} title={title} description={intro} ctas={cta ? [cta] : []} />
 
       <section className="page-section bg-[var(--soft-surface)] text-[#0f172a]">

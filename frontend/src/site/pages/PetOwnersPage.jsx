@@ -1,13 +1,21 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 import { SectionWrapper, Container, ContentGrid } from '../components/LayoutWrappers';
 
 export const PetOwnersPage = () => {
   return (
     <div className="bg-surface w-full min-h-screen">
-      <Helmet>
-        <title>Register Your Pet &amp; Report Lost or Found – RescueNet360</title>
-        <meta name="description" content="Create your pet's permanent digital profile. Register, report lost or found pets, and get matched with shelters and rescues that can help bring them home." />
-      </Helmet>
+      <SEO
+        title="Register Your Pet & Report Lost or Found – RescueNet360"
+        description="Create your pet's permanent digital profile. Register, report lost or found pets, and get matched with shelters and rescues that can help bring them home."
+        path="/pet-owners"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "RescueNet360 for Pet Owners & Families",
+          "description": "Permanent digital identity and recovery infrastructure for pet owners. Register pets, report lost or found pets, and connect with local shelters.",
+          "url": "https://rescuenet360.com/pet-owners"
+        }}
+      />
 
       {/* Section 1 — Hero */}
       <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator" border={false}>

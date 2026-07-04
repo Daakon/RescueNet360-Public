@@ -1,14 +1,22 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 import { Link } from 'react-router-dom';
 import { SectionWrapper, Container, ContentGrid } from '../components/LayoutWrappers';
 
 export const SponsorsPage = () => {
   return (
     <div className="bg-surface w-full min-h-screen">
-      <Helmet>
-        <title>Sponsor Animal Welfare Infrastructure – RescueNet360</title>
-        <meta name="description" content="Fund the coordination tools that protect animals in your community. RescueNet360 sponsors are woven into regional animal welfare infrastructure, not pasted on top." />
-      </Helmet>
+      <SEO
+        title="Sponsor Animal Welfare Infrastructure – RescueNet360"
+        description="Fund the coordination tools that protect animals in your community. RescueNet360 sponsors are woven into regional animal welfare infrastructure, not pasted on top."
+        path="/sponsorship"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Sponsor Animal Welfare Infrastructure – RescueNet360",
+          "description": "Fund the coordination tools that protect animals in your community. Become a regional or national underwriting partner.",
+          "url": "https://rescuenet360.com/sponsorship"
+        }}
+      />
 
       {/* Section 1 — Hero */}
       <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator" border={false}>

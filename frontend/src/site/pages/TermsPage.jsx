@@ -85,6 +85,7 @@ export const TermsPage = () => {
       intro="These terms describe how RescueNet services are provided and how users, organizations, and partners participate in a mission-first coordination platform."
       metaNote={EFFECTIVE_DATE}
       sections={sections}
+      path="/terms"
     />
   );
 };

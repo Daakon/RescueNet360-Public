@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 import { Link } from 'react-router-dom';
 import { ContactForm } from '../components/ContactForm';
 import { SectionWrapper, Container } from '../components/LayoutWrappers';
@@ -6,10 +6,18 @@ import { SectionWrapper, Container } from '../components/LayoutWrappers';
 export const ContactPage = () => {
   return (
     <div className="bg-surface w-full min-h-screen">
-      <Helmet>
-        <title>Contact RescueNet360 – Pilots, Sponsors &amp; Support</title>
-        <meta name="description" content="Questions about RescueNet360? Reach out about pilot partnerships, sponsorship opportunities, or platform support. We read every message and respond to every one." />
-      </Helmet>
+      <SEO
+        title="Contact RescueNet360 – Pilots, Sponsors & Support"
+        description="Questions about RescueNet360? Reach out about pilot partnerships, sponsorship opportunities, or platform support. We read every message and respond to every one."
+        path="/contact"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact RescueNet360",
+          "description": "Reach out about pilot partnerships, sponsorship opportunities, or platform support.",
+          "url": "https://rescuenet360.com/contact"
+        }}
+      />
 
       {/* Hero / Section 1 — General Contact */}
       <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator" border={false}>

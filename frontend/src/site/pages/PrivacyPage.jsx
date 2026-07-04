@@ -68,6 +68,7 @@ export const PrivacyPage = () => {
       intro="This Privacy Policy explains what information RescueNet collects, how it is used, and how we protect mission-aligned data rights."
       metaNote={EFFECTIVE_DATE}
       sections={sections}
+      path="/privacy"
     />
   );
 };

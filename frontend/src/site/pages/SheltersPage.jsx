@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 import { SectionWrapper, Container, ContentGrid } from '../components/LayoutWrappers';
 import { submitPilotApplication } from '../../utils/api';
 
@@ -47,10 +47,26 @@ export const SheltersPage = () => {
 
   return (
     <div className="bg-surface w-full min-h-screen">
-      <Helmet>
-        <title>Shelter & Rescue Management Software – RescueNet360</title>
-        <meta name="description" content="Stop managing animal welfare across spreadsheets and disconnected systems. RescueNet360 connects intake, foster, transport, and reunification in one place." />
-      </Helmet>
+      <SEO
+        title="Shelter & Rescue Management Software – RescueNet360"
+        description="Stop managing animal welfare across spreadsheets and disconnected systems. RescueNet360 connects intake, foster, transport, and reunification in one place — 100% free."
+        path="/shelters-rescues"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "RescueNet360 for Shelters & Rescues",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web, iOS, Android",
+          "description": "Comprehensive operational software built for animal shelters, rescues, foster networks, and transport coordinators.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "100% Free for Animal Shelters and Rescues"
+          },
+          "url": "https://rescuenet360.com/shelters-rescues"
+        }}
+      />
 
       {/* Section 1 — Hero */}
       <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator relative overflow-hidden" border={false}>

@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 export const NotFoundPage = () => {
   return (
     <section className="page-section">
+      <SEO title="Page Not Found – RescueNet360" description="The page you requested is unavailable." path="" />
       <div className="wrap">
         <div className="surface-card border border-white/15 bg-white/5 p-8 text-center">
           <p className="kicker">Not Found</p>

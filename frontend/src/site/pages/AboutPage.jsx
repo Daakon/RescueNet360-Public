@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { SEO } from '../components/SEO';
 import { SectionWrapper, Container } from '../components/LayoutWrappers';
 
 const PRINCIPLES = [
@@ -25,10 +25,19 @@ const PRINCIPLES = [
 export const AboutPage = () => {
   return (
     <div className="bg-surface w-full min-h-screen">
-      <Helmet>
-        <title>About RescueNet360 – Why We Built This</title>
-        <meta name="description" content="RescueNet360 was built to close the gaps that cost animals their lives. Learn about the mission, the team, and the coordination problem we exist to solve." />
-      </Helmet>
+      <SEO
+        title="About RescueNet360 – Why We Built This"
+        description="RescueNet360 was built to close the gaps that cost animals their lives. Learn about the mission, the team, and the coordination problem we exist to solve."
+        path="/about"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About RescueNet360",
+          "description": "Learn why we built the national pet identity infrastructure and operational operating system for animal shelters and rescues.",
+          "url": "https://rescuenet360.com/about",
+          "mainEntity": { "@id": "https://rescuenet360.com/#organization" }
+        }}
+      />
 
       {/* Hero */}
       <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator" border={false}>

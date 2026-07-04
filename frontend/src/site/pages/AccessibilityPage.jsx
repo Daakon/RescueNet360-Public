@@ -45,6 +45,7 @@ export const AccessibilityPage = () => {
       intro="This statement describes RescueNet accessibility goals, current practices, and how to request support."
       metaNote={EFFECTIVE_DATE}
       sections={sections}
+      path="/accessibility"
     />
   );
 };

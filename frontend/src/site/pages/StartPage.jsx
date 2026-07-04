@@ -1,9 +1,22 @@
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 import { SectionWrapper, Container, ContentGrid } from '../components/LayoutWrappers';
 
 export const StartPage = () => {
   return (
     <div className="bg-surface w-full min-h-[calc(100vh-80px)]">
+      <SEO
+        title="Get Started – RescueNet360 Gateway"
+        description="Choose your path to enter RescueNet360. Join as an animal shelter, rescue organization, pet owner, foster, or sponsor."
+        path="/start"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Get Started with RescueNet360",
+          "description": "Choose your role to enter the national pet identity and recovery system.",
+          "url": "https://rescuenet360.com/start"
+        }}
+      />
       <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator" border={false}>
         <Container size="narrow">
           <span className="inline-block px-4 py-1.5 mb-6 text-xs font-extrabold uppercase tracking-wider bg-secondary-soft text-secondary-deep rounded-pill">
