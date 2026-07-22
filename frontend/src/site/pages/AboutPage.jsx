@@ -1,24 +1,37 @@
 import { SEO } from '../components/SEO';
 import { SectionWrapper, Container } from '../components/LayoutWrappers';
 
-const PRINCIPLES = [
+const WHY_CARDS = [
   {
-    icon: <img src="/images/icons/shield-logo.svg" alt="Shield Logo" className="w-12 h-12 object-contain" />,
-    title: 'Permanently Free for Shelters & Rescues',
+    title: 'The coordination layer animal welfare has needed',
     description:
-      'Underwritten by mission-aligned sponsors so animal welfare organizations never have to choose between software tools and saving animal lives.',
+      'Most shelter and rescue systems were built to manage work inside one organization. Animal welfare does not stay inside one organization. RescueNet360 works alongside existing tools as the coordination layer between people, organizations, and animal records.',
   },
   {
-    icon: <img src="/images/icons/RescueNetIcons-Color-05.svg" alt="Persistent Digital Identity" className="w-12 h-12 object-contain" />,
-    title: 'Persistent Digital Identity',
+    title: 'The scale of the problem demands better coordination',
     description:
-      'Animals maintain a single continuous record across organizations through advanced recognition and cross-system tracking, ensuring medical and custody history never resets.',
+      'Millions of animals enter U.S. shelters each year. Many more are reported lost, found, transferred, fostered, transported, adopted, or reclaimed. Every one of those moments depends on information moving quickly. RescueNet360 was built to help animal welfare teams coordinate at the speed the work requires.',
+  },
+];
+
+const TEAM = [
+  {
+    initials: 'MH',
+    name: 'Misty Harrison',
+    title: 'Founder and CEO',
+    bio: 'Leads product vision, business architecture, and sponsor model development. Nearly two decades of operational and technical experience. Her focus: make animal welfare coordination easier, faster, and more connected.',
   },
   {
-    icon: <img src="/images/icons/RescueNetIcons-Color-06.svg" alt="Public Benefit Structure" className="w-12 h-12 object-contain" />,
-    title: 'Public Benefit Structure',
-    description:
-      'Structured as a Public Benefit Corporation committed to long-term mission accountability, transparent reporting, and systemic collaboration over short-term profit extraction.',
+    initials: 'EL',
+    name: 'Ed Lent',
+    title: 'Co-Founder and CTO',
+    bio: 'Built the production platform while maintaining his full-time career. 30 years of full-stack experience across government, healthcare, financial services, and e-commerce. Believes better systems create better outcomes for animals.',
+  },
+  {
+    initials: 'ML',
+    name: 'Melanie Lent',
+    title: 'Head of Marketing and Growth',
+    bio: 'Supports marketing direction, growth, website execution, content coordination, and partner-facing communication. Turns the RescueNet360 vision into clear public messaging.',
   },
 ];
 
@@ -27,7 +40,7 @@ export const AboutPage = () => {
     <div className="bg-surface w-full min-h-screen">
       <SEO
         title="About RescueNet360 – Why We Built This"
-        description="RescueNet360 was built to close the gaps that cost animals their lives. Learn about the mission, the team, and the coordination problem we exist to solve."
+        description="RescueNet360 was built to make the connections between animal welfare organizations visible. Learn about the mission, the founder story, and the team."
         path="/about"
         schema={{
           "@context": "https://schema.org",
@@ -39,213 +52,98 @@ export const AboutPage = () => {
         }}
       />
 
-      {/* Hero */}
-      <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator" border={false}>
-        <Container size="narrow">
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-extrabold uppercase tracking-wider bg-secondary-soft text-secondary-deep rounded-pill">
-            OUR MISSION &amp; TEAM
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-text-primary">
-            Why We Built This
-          </h1>
-          <p className="text-lg md:text-xl text-text-secondary font-medium leading-relaxed max-w-3xl mx-auto">
-            RescueNet360 was built to close the gaps that cost animals their lives.
-          </p>
+      {/* Section 1 — Intro */}
+      <SectionWrapper background="surface" className="py-20 border-b border-separator">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-14 items-center">
+            <div>
+              <span className="inline-block px-4 py-1.5 mb-5 text-xs font-extrabold uppercase tracking-wider bg-secondary-soft text-secondary-deep rounded-pill">
+                About
+              </span>
+              <h1 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-6 leading-tight">
+                Why RescueNet360 Exists
+              </h1>
+              <div className="space-y-4 text-text-secondary text-[15.5px] leading-relaxed">
+                <p>
+                  Every day, animal welfare teams work to save lives with limited time, limited space, and limited visibility. The people who want to help often exist. The information they need does not always reach them in time.
+                </p>
+                <p>
+                  A lost pet report might never connect with the shelter holding that pet. A rescue might never see an urgent animal one county over. A foster coordinator might spend hours matching pets to homes when the right family is already in the network.
+                </p>
+                <p className="font-bold text-text-primary">
+                  RescueNet360 exists to make those connections visible.
+                </p>
+              </div>
+            </div>
+            <div className="h-56 rounded-2xl bg-secondary-soft flex items-center justify-center text-primary">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.4-9.5 9-9.5 9z"></path></svg>
+            </div>
+          </div>
         </Container>
       </SectionWrapper>
 
-      {/* Section 1 — Why This Exists */}
+      {/* Section 2 — Why Cards */}
       <SectionWrapper background="surface" className="py-20 border-b border-separator">
         <Container size="narrow">
-          <span className="text-sm font-bold uppercase tracking-wider text-primary mb-2 block">Our Purpose</span>
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-6">
-            Why This Exists
-          </h2>
-          <div className="prose prose-lg text-text-secondary leading-relaxed space-y-6">
-            <p>
-              Every year, animals die in shelters. Not because there are not people willing to help, but because the people who could help cannot see each other. A shelter holding a found dog does not know the owner filed a lost report across town. A foster coordinator does not know transport capacity opened up. A rescue does not know a dog is two days from euthanasia at the next county.
-            </p>
-            <p className="font-bold text-text-primary text-xl border-l-4 border-primary pl-6 py-2 bg-surface rounded-r-xl">
-              RescueNet360 was built to make those invisible connections visible. Because the gap between life and death for an animal is often just a piece of information that did not move fast enough.
-            </p>
-          </div>
-        </Container>
-      </SectionWrapper>
-
-      {/* Section 2 — The Problem We Are Solving */}
-      <SectionWrapper background="surface-muted" className="py-20">
-        <Container size="narrow">
-          <span className="text-sm font-bold uppercase tracking-wider text-secondary mb-2 block">The Challenge</span>
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-6">
-            Animal Welfare Data Is Too Fragmented
-          </h2>
-          <div className="prose prose-lg text-text-secondary leading-relaxed space-y-6">
-            <p>
-              Animal welfare data and workflows are spread across thousands of disconnected systems. Each organization maintains its own records. When an animal moves from one organization to another, its identity resets. Medical history fragments. Custody chains break. Reunification slows.
-            </p>
-            <p>
-              This is not a software failure inside any single organization. The failure occurs between systems. RescueNet360 sits above existing shelter software as the horizontal coordination layer the ecosystem has never had.
-            </p>
-          </div>
-        </Container>
-      </SectionWrapper>
-      <SectionWrapper background="surface" className="py-20 border-t border-separator">
-        <Container size="narrow">
-          <span className="text-sm font-bold uppercase tracking-wider text-primary mb-2 block">Urgency</span>
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-6">
-            The Need Is Measurable
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-            <div className="bg-surface p-6 rounded-2xl border border-separator text-center">
-              <div className="text-3xl md:text-4xl font-extrabold text-primary mb-2">6–7 Million</div>
-              <div className="text-sm font-bold text-text-primary">Animals enter U.S. shelters each year</div>
-            </div>
-            <div className="bg-surface p-6 rounded-2xl border border-separator text-center">
-              <div className="text-3xl md:text-4xl font-extrabold text-state-danger mb-2">~920,000</div>
-              <div className="text-sm font-bold text-text-primary">Estimated euthanized annually*</div>
-            </div>
-          </div>
-          <div className="prose prose-lg text-text-secondary leading-relaxed space-y-6">
-            <p>
-              In many U.S. shelters, animals are euthanized purely due to lack of space or resources. A transport organization two counties away might have open seats to a low-intake rescue in another state—but without unified visibility, the connection is never made.
-            </p>
-            <p>
-              Simultaneously, pet owners searching for lost animals rely on informal social media networks while shelters track intakes in siloed systems. By establishing persistent digital identity and centralized operational visibility, we transform animal welfare from reactive crisis management into proactive, coordinated protection.
-            </p>
-            <p className="text-sm text-text-muted italic pt-2">
-              *Estimates based on national animal shelter reporting data from Shelter Animals Count and ASPCA industry metrics.
-            </p>
-          </div>
-        </Container>
-      </SectionWrapper>
-
-      {/* Section 3 — Core Principles */}
-      <SectionWrapper background="surface-muted" className="py-20 border-t border-separator">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-sm font-bold uppercase tracking-wider text-primary mb-2 block">Foundational Values</span>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-4">
-              Core Principles
-            </h2>
-            <p className="text-text-secondary text-lg">
-              We operate differently than legacy software vendors. Our architecture and business model reflect our commitments.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {PRINCIPLES.map((principle, index) => (
-              <div key={index} className="card card-comfortable bg-white border border-separator shadow-sm p-8 rounded-2xl flex flex-col justify-between">
-                <div>
-                  <div className="mb-6">{principle.icon}</div>
-                  <h3 className="font-display text-xl font-bold text-text-primary mb-3">
-                    {principle.title}
-                  </h3>
-                  <p className="text-text-secondary leading-relaxed text-sm">
-                    {principle.description}
-                  </p>
-                </div>
+          <div className="flex flex-col gap-5">
+            {WHY_CARDS.map((card) => (
+              <div key={card.title} className="border border-secondary/20 rounded-2xl p-8">
+                <h3 className="font-display text-lg font-extrabold text-text-primary mb-2.5">
+                  {card.title}
+                </h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  {card.description}
+                </p>
               </div>
             ))}
           </div>
         </Container>
       </SectionWrapper>
 
-      {/* Section 4 — Founder Story */}
-      <SectionWrapper background="surface" className="py-20 bg-gradient-to-b from-surface to-bg border-t border-separator" border={false}>
+      {/* Section 3 — Founder Story */}
+      <SectionWrapper background="transparent" className="py-20" style={{ backgroundColor: 'rgb(var(--color-secondary-soft))' }}>
         <Container size="narrow">
-          <div className="w-full">
-            <span className="inline-block px-4 py-1.5 mb-4 text-xs font-extrabold uppercase tracking-wider bg-secondary-soft text-secondary-deep rounded-pill">
-              FOUNDER STORY
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-8 text-text-primary">
-              Why Misty Built This
-            </h2>
-            
-            <div className="bg-white p-8 md:p-12 rounded-3xl border border-separator-strong space-y-6 text-text-secondary leading-relaxed italic relative shadow-elevated">
-              <span className="absolute top-4 left-6 text-6xl text-primary/20 font-serif leading-none select-none">&ldquo;</span>
-              
-              <p className="relative z-10 pt-2 text-text-primary font-medium">
-                I kept seeing missing dog posts on Nextdoor. Over and over, like digital lost-and-found flyers. But one stood out. An elderly dog had gone missing, and her owner posted relentlessly, day after day, searching and hoping. And I felt it. That ache. That helpless pain of not knowing.
-              </p>
-              <p className="relative z-10">
-                I messaged the owner and offered to go door to door. I just wanted to help bring her dog home. She gently declined. I think she already knew, deep down, her pup was not coming back. When I asked if I could share her story to help others, she said no. She said, &apos;If you share it... that means she&apos;s really gone.&apos;
-              </p>
-              <p className="relative z-10">
-                That moment changed everything. I had not even thought of it that way. I was hoping for a happy ending. But it never came. That is when something in me shifted.
-              </p>
-              <p className="relative z-10">
-                Then came the kill lists. People sharing shelter dogs with hours left. Pleading for someone, anyone, to save them. Beautiful, adoptable animals whose only crime was running out of time in a cage. And I realized: they weren&apos;t dying because nobody cared. They were dying because the right person didn&apos;t know they were there. The information was fragmented, buried in localized shelter databases or lost in social media algorithms.
-              </p>
-              <p className="relative z-10">
-                That is not a peaceful death. That is a system failure. I could not ignore it anymore. I am a compassionate person. A fixer. A builder. And I knew this system, this heartbreaking cycle, was something I could help change. So I started RescueNet360.
-              </p>
-              <p className="relative z-10">
-                Because no pet should disappear without a chance. No family should wonder if they gave up too soon. And no shelter should have to choose who lives or dies because they are out of space.
-              </p>
-
-              <div className="pt-6 border-t border-separator text-right not-italic">
-                <div className="font-bold text-text-primary text-lg">— Misty Harrison</div>
-                <div className="text-primary text-sm font-medium">Founder of RescueNet360</div>
-              </div>
-            </div>
+          <span className="text-xs font-bold uppercase tracking-wider text-primary mb-3 block">Founder Story</span>
+          <h2 className="font-display text-2xl md:text-3xl font-extrabold text-text-primary mb-6">
+            Why Misty Started RescueNet360
+          </h2>
+          <div className="bg-white border-l-[5px] border-primary rounded-r-2xl p-8 md:p-11 space-y-4 text-text-primary text-[15px] leading-loose">
+            <p>
+              I kept seeing missing dog posts online. Most looked like digital flyers, shared over and over by families who were scared, tired, and hoping someone had seen their pet. One story stayed with me.
+            </p>
+            <p>
+              An elderly dog went missing. Her owner searched relentlessly. I offered to help go door to door. She gently declined. When I asked if I could share her story to help others, she said no. She said sharing it would make it feel final. That moment changed how I saw the problem.
+            </p>
+            <p>
+              Lost pets are not only a neighborhood problem. They are an information problem. Shelters, rescues, pet owners, and community members all care, but they are often working from different places with different pieces of the story.
+            </p>
+            <p>
+              I built RescueNet360 because pets deserve a better chance, families deserve faster answers, and animal welfare teams deserve infrastructure that supports the work they are already doing.
+            </p>
+            <p className="font-bold text-primary pt-1">— Misty Harrison, Founder and CEO, RescueNet360</p>
           </div>
         </Container>
       </SectionWrapper>
 
-      {/* Section 5 — Leadership & Team */}
-      <SectionWrapper background="surface-muted" className="py-20 border-t border-separator">
+      {/* Section 4 — Team */}
+      <SectionWrapper background="surface" className="py-20 border-t border-separator">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-sm font-bold uppercase tracking-wider text-primary mb-2 block">Who We Are</span>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-4">
-              Leadership
-            </h2>
-            <p className="text-text-secondary text-lg">
-              Experienced builders and advocates united by a passion for animal protection.
-            </p>
-          </div>
+          <span className="text-xs font-bold uppercase tracking-wider text-text-muted mb-3 block">The Team</span>
+          <h2 className="font-display text-2xl md:text-3xl font-extrabold text-text-primary mb-8">
+            Meet the Team
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Misty */}
-            <div className="card card-comfortable bg-white border border-separator shadow-sm flex flex-col p-8 rounded-2xl">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center font-bold text-2xl mb-6">
-                MH
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {TEAM.map((member) => (
+              <div key={member.name} className="border border-secondary/20 rounded-2xl p-8">
+                <div className="w-[52px] h-[52px] rounded-full bg-secondary-soft text-primary flex items-center justify-center font-display font-extrabold text-sm mb-5">
+                  {member.initials}
+                </div>
+                <h3 className="font-display font-extrabold text-lg text-text-primary mb-1">{member.name}</h3>
+                <div className="font-bold text-sm text-secondary mb-3">{member.title}</div>
+                <p className="text-sm text-text-secondary leading-relaxed">{member.bio}</p>
               </div>
-              <h3 className="text-2xl font-bold text-text-primary mb-1">Misty Harrison</h3>
-              <div className="text-sm font-bold text-primary mb-4">Founder and CEO</div>
-              <p className="text-text-secondary text-sm leading-relaxed space-y-3 flex-grow">
-                <span>
-                  Misty Harrison is the Founder and CEO of RescueNet360, a Public Benefit Corporation building the coordination infrastructure animal welfare has never had. She brings 19 years of technical and operational experience spanning Microsoft, ADP, Practitioners Publishing Company, Boy Scouts of America National HQ, and AutoRealty.
-                </span>
-                <span className="block mt-3">
-                  At RescueNet360, Misty owns product vision, brand, business architecture, and the sponsor underwriting model that keeps the platform permanently free for shelters and rescues. She originated the concept of persistent digital pet identity assigned through facial recognition, the core innovation that makes cross-organizational reunification possible at scale.
-                </span>
-              </p>
-            </div>
-
-            {/* Ed */}
-            <div className="card card-comfortable bg-white border border-separator shadow-sm flex flex-col p-8 rounded-2xl">
-              <div className="w-16 h-16 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center font-bold text-2xl mb-6">
-                ED
-              </div>
-              <h3 className="text-2xl font-bold text-text-primary mb-1">Ed</h3>
-              <div className="text-sm font-bold text-secondary mb-4">Co-Founder and CTO</div>
-              <p className="text-text-secondary text-sm leading-relaxed flex-grow">
-                Ed is the Co-Founder and CTO of RescueNet360, and the engineer who built it. He brings 30 years of experience across the full technology stack. At RescueNet360, Ed single-handedly built the production platform in six months while maintaining his full-time career.
-              </p>
-            </div>
-
-            {/* Melanie */}
-            <div className="card card-comfortable bg-white border border-separator shadow-sm flex flex-col p-8 rounded-2xl">
-              <div className="w-16 h-16 rounded-2xl bg-surface text-text-primary flex items-center justify-center font-bold text-2xl mb-6">
-                ML
-              </div>
-              <h3 className="text-2xl font-bold text-text-primary mb-1">Melanie</h3>
-              <div className="text-sm font-bold text-text-secondary mb-4">Brand &amp; Content Strategy</div>
-              <p className="text-text-secondary text-sm leading-relaxed flex-grow">
-                Melanie leads content architecture, brand communication, and public engagement for RescueNet360, ensuring that every shelter, rescue, sponsor, and pet family experiences clear, purpose-driven support across the platform.
-              </p>
-            </div>
+            ))}
           </div>
         </Container>
       </SectionWrapper>

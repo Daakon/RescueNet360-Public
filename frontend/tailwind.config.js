@@ -68,7 +68,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Figtree"', 'system-ui', 'sans-serif'],
+        display: ['"Nunito"', '"Figtree"', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'display': 'var(--font-size-display)',

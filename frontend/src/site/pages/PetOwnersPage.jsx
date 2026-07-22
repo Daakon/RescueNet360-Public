@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { SectionWrapper, Container, ContentGrid } from '../components/LayoutWrappers';
 
@@ -18,96 +19,151 @@ export const PetOwnersPage = () => {
       />
 
       {/* Section 1 — Hero */}
-      <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator" border={false}>
-        <Container size="narrow">
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-extrabold uppercase tracking-wider bg-secondary-soft text-secondary-deep rounded-pill">
-            FOR PET OWNERS
+      <SectionWrapper background="transparent" className="bg-gradient-to-br from-primary-deep via-primary to-secondary-deep text-white text-center py-20 md:py-24" border={false}>
+        <Container size="narrow" className="max-w-2xl mx-auto">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-extrabold uppercase tracking-wider bg-white/15 text-white rounded-pill">
+            Pet Owners
           </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-text-primary">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-white">
             Protect Your Pet Before They Go Missing
           </h1>
-          <p className="text-lg md:text-xl text-text-secondary font-medium leading-relaxed mb-10 max-w-3xl mx-auto">
-            Create your pet&apos;s permanent digital identity. Photos, records, microchip information, emergency contacts. If they ever go missing, the right information is already in the hands of the people who can help.
+          <p className="text-base md:text-lg text-white/90 leading-relaxed mb-2">
+            Create a free digital profile for your pet with photos, microchip details, medical notes, emergency contacts, and a shareable QR code.
           </p>
-          <div className="flex justify-center">
-            <a href="https://app.rescuenet360.com/register" className="btn btn-primary min-h-[56px] px-10 text-lg flex items-center justify-center font-bold shadow-elevated hover:scale-105 transition-transform">
-              Get Started →
+          <p className="text-base md:text-lg text-white/90 leading-relaxed mb-8">
+            If your pet ever goes missing, RescueNet360 helps the right people access the right information faster.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="https://app.rescuenet360.com/register" className="btn btn-secondary min-h-[52px] px-8 text-base flex items-center justify-center font-bold">
+              Register Your Pet Free
             </a>
+            <Link to="/contact" className="btn min-h-[52px] px-8 text-base flex items-center justify-center font-bold border-2 border-white/60 text-white bg-white/10 hover:bg-white/20 transition-colors">
+              Report Lost or Found
+            </Link>
           </div>
         </Container>
       </SectionWrapper>
 
-      {/* Section 2 — Feature Cards */}
-      <SectionWrapper background="surface" className="py-20 border-b border-slate-200/60">
+      {/* Section 2 — What You Can Do */}
+      <SectionWrapper background="transparent" className="py-16" style={{ backgroundColor: 'rgb(var(--color-secondary-soft))' }}>
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-4">
-              How RescueNet360 Works For You
-            </h2>
-            <p className="text-text-secondary text-lg">
-              Comprehensive tools designed to safeguard your pets every day of their lives.
-            </p>
+          <div className="text-xs font-bold uppercase tracking-wider text-primary mb-3.5">
+            What You Can Do
           </div>
+          <h2 className="font-display text-2xl md:text-3xl font-extrabold text-text-primary mb-8 leading-tight">
+            Built to Help Pets Get Home Faster
+          </h2>
 
-          <ContentGrid columns={4} className="max-w-6xl mx-auto">
-            <div className="card card-comfortable bg-white border border-slate-200 hover:border-secondary/50 transition-all shadow-sm hover:shadow-md flex flex-col p-6 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 p-2">
-                <img src="/images/icons/RescueNetIcons-Color-01.svg" alt="Register Pet" className="w-8 h-8 object-contain" />
+          <ContentGrid columns={3} className="max-w-6xl mx-auto">
+            <div className="bg-white rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-2xl bg-secondary-soft flex items-center justify-center mb-4 text-primary">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="8" cy="12" r="2"></circle><path d="M13 10h5M13 14h5"></path></svg>
               </div>
-              <h3 className="text-lg font-bold mb-2 text-text-primary">Register Your Pet</h3>
-              <p className="text-sm text-text-muted leading-relaxed mt-auto">
-                Create a pet profile with photos, identifying details, ownership information, emergency contacts, and QR and share tools.
+              <h3 className="font-display font-extrabold text-lg mb-2.5 text-text-primary">Register your pet</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Create a permanent pet profile with photos, identifying details, medical notes, microchip information, emergency contacts, and a shareable QR code.
               </p>
             </div>
 
-            <div className="card card-comfortable bg-white border border-slate-200 hover:border-secondary/50 transition-all shadow-sm hover:shadow-md flex flex-col p-6 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 p-2">
-                <img src="/images/icons/RescueNetIcons-Color-02.svg" alt="Report Lost or Found" className="w-8 h-8 object-contain" />
+            <div className="bg-white rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-2xl bg-secondary-soft flex items-center justify-center mb-4 text-primary">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 21s7-7.5 7-12a7 7 0 10-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
               </div>
-              <h3 className="text-lg font-bold mb-2 text-text-primary">Report Lost or Found Pets</h3>
-              <p className="text-sm text-text-muted leading-relaxed mt-auto">
-                Quickly submit lost or found pet reports and get your information in front of the shelters and rescues who need to see it.
+              <h3 className="font-display font-extrabold text-lg mb-2.5 text-text-primary">Report a lost pet</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Create a lost pet report in minutes. Add photos, last known location, contact preferences, and key details to help others recognize your pet.
               </p>
             </div>
 
-            <div className="card card-comfortable bg-white border border-slate-200 hover:border-secondary/50 transition-all shadow-sm hover:shadow-md flex flex-col p-6 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 p-2">
-                <img src="/images/icons/RescueNetIcons-Color-03.svg" alt="Review Matches" className="w-8 h-8 object-contain" />
+            <div className="bg-white rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-2xl bg-secondary-soft flex items-center justify-center mb-4 text-primary">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
               </div>
-              <h3 className="text-lg font-bold mb-2 text-text-primary">Review Possible Matches</h3>
-              <p className="text-sm text-text-muted leading-relaxed mt-auto">
-                RescueNet360 surfaces confidence-scored matches between lost and found pets to support faster, more accurate reunification.
+              <h3 className="font-display font-extrabold text-lg mb-2.5 text-text-primary">Report a found pet</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Found a pet? Submit a report, upload photos, and help connect that animal to existing lost reports and registered profiles.
               </p>
             </div>
 
-            <div className="card card-comfortable bg-white border border-slate-200 hover:border-secondary/50 transition-all shadow-sm hover:shadow-md flex flex-col p-6 rounded-2xl">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4 p-2">
-                <img src="/images/icons/RescueNetIcons-Color-04.svg" alt="Coordinated Reunification" className="w-8 h-8 object-contain" />
+            <div className="bg-white rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-2xl bg-secondary-soft flex items-center justify-center mb-4 text-primary">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v8M8 12h8"></path></svg>
               </div>
-              <h3 className="text-lg font-bold mb-2 text-text-primary">Coordinated Reunification</h3>
-              <p className="text-sm text-text-muted leading-relaxed mt-auto">
-                When your pet goes missing, RescueNet360 surfaces your registration data to connected shelters, rescues, and community members so the network works for you automatically.
+              <h3 className="font-display font-extrabold text-lg mb-2.5 text-text-primary">See possible matches</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                RescueNet360 surfaces possible matches between lost and found animals using confidence levels and human review.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-2xl bg-secondary-soft flex items-center justify-center mb-4 text-primary">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="6" r="2.5"></circle><circle cx="18" cy="18" r="2.5"></circle><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"></path></svg>
+              </div>
+              <h3 className="font-display font-extrabold text-lg mb-2.5 text-text-primary">Share faster</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Pet profiles and lost reports are easier to share with shelters, rescues, neighbors, and community groups.
               </p>
             </div>
           </ContentGrid>
         </Container>
       </SectionWrapper>
 
-      {/* Section 3 — CTA */}
-      <SectionWrapper background="surface-muted" className="py-20 text-center">
-        <Container size="narrow">
-          <div className="dark bg-bg text-text-primary p-10 md:p-14 rounded-3xl shadow-xl border border-separator">
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-6 text-white">
-              Protect your pet starting today
-            </h2>
-            <p className="text-text-secondary text-lg mb-8 max-w-xl mx-auto font-medium">
-              Don&apos;t wait until an emergency happens. Ensure your pet&apos;s records are active in the national recovery network.
-            </p>
-            <div className="flex justify-center">
-              <a href="https://app.rescuenet360.com/register" className="btn btn-primary min-h-[56px] px-12 text-lg font-bold shadow-lg hover:scale-105 transition-transform">
-                Get Started
-              </a>
+      {/* Section 3 — Owner Trust */}
+      <SectionWrapper background="surface" className="py-16">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-wider text-text-secondary mb-3.5">Owner Trust</div>
+              <h2 className="font-display text-2xl md:text-3xl font-extrabold text-text-primary mb-4 leading-tight">
+                Your Pet&apos;s Information Stays With Your Pet.
+              </h2>
+              <p className="text-text-secondary text-[15.5px] leading-relaxed mb-4">
+                Microchips are helpful, but they are not the full story. Photos, markings, medical notes, emergency contacts, and recent updates also matter.
+              </p>
+              <p className="text-text-secondary text-[15.5px] leading-relaxed">
+                RescueNet360 gives your pet a living profile that supports faster action when time matters.
+              </p>
             </div>
+            <div className="h-56 rounded-2xl bg-secondary-soft flex items-center justify-center text-primary">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.4-9.5 9-9.5 9z"></path></svg>
+            </div>
+          </div>
+        </Container>
+      </SectionWrapper>
+
+      {/* Section 4 — Privacy */}
+      <SectionWrapper background="transparent" className="py-16" style={{ backgroundColor: 'rgb(var(--color-secondary-soft))' }}>
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+            <div className="h-52 rounded-2xl bg-white flex items-center justify-center text-primary order-2 lg:order-1">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="4" y="11" width="16" height="9" rx="2"></rect><path d="M8 11V7a4 4 0 018 0v4"></path></svg>
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-secondary mb-3.5">Privacy</div>
+              <h2 className="font-display text-2xl md:text-3xl font-extrabold text-text-primary mb-4 leading-tight">
+                Designed With Privacy in Mind
+              </h2>
+              <p className="text-text-secondary text-[15.5px] leading-relaxed">
+                Your private contact information should not be exposed publicly to get your pet home. RescueNet360 is designed to support safe communication, controlled sharing, and better reunification without forcing owners to post personal details everywhere.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </SectionWrapper>
+
+      {/* Section 5 — CTA */}
+      <SectionWrapper background="transparent" className="py-20 text-center bg-gradient-to-br from-primary to-primary-deep" border={false}>
+        <Container size="narrow">
+          <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-4 text-white">
+            Register Your Pet Before You Need It.
+          </h2>
+          <p className="text-primary-soft text-[15.5px] mb-8 max-w-xl mx-auto leading-relaxed">
+            Create a free account in minutes. Be prepared before anything happens.
+          </p>
+          <div className="flex justify-center">
+            <a href="https://app.rescuenet360.com/register" className="btn btn-secondary min-h-[52px] px-8 text-base font-bold">
+              Create Free Pet Profile
+            </a>
           </div>
         </Container>
       </SectionWrapper>

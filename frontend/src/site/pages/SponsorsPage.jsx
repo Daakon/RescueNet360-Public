@@ -19,127 +19,125 @@ export const SponsorsPage = () => {
       />
 
       {/* Section 1 — Hero */}
-      <SectionWrapper background="surface" className="bg-gradient-to-br from-[#EAE6FF] via-surface to-bg text-text-primary text-center py-20 md:py-28 border-b border-separator" border={false}>
-        <Container size="narrow">
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-extrabold uppercase tracking-wider bg-secondary-soft text-secondary-deep rounded-pill">
-            SPONSORS &amp; PARTNERS
+      <SectionWrapper background="transparent" className="bg-gradient-to-br from-primary-deep via-primary to-secondary-deep text-white text-center py-20 md:py-24" border={false}>
+        <Container size="narrow" className="max-w-2xl mx-auto">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-extrabold uppercase tracking-wider bg-white/15 text-white rounded-pill">
+            Sponsors &amp; Partners
           </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-text-primary">
-            Support the Infrastructure That Protects Animals
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-white">
+            Fund the Infrastructure. Show the Impact.
           </h1>
-          <p className="text-lg md:text-xl text-text-secondary font-medium leading-relaxed mb-10">
-            RescueNet360 connects shelters, rescues, and pet owners across regions into a single coordinated system. Sponsors fund the infrastructure that makes that coordination possible and their presence is woven into the communities they serve, not pasted on top.
+          <p className="text-base md:text-lg text-white/90 leading-relaxed mb-8">
+            RescueNet360 helps connect shelters, rescues, pet owners, and regional partners through one coordinated animal welfare network. Sponsors help bring this infrastructure to the communities they serve.
           </p>
-          <div className="flex justify-center">
-            <Link to="/contact" className="btn btn-primary min-h-[56px] px-8 text-lg font-bold shadow-elevated flex items-center justify-center">
-              Contact Us About Sponsorship →
-            </Link>
-          </div>
+          <Link to="/contact" className="btn btn-secondary min-h-[52px] px-8 text-base inline-flex items-center justify-center font-bold">
+            Talk to Our Sponsorship Team
+          </Link>
         </Container>
       </SectionWrapper>
 
-      {/* Section 2 — Positioning */}
-      <SectionWrapper background="surface" className="py-20 border-b border-slate-200/60">
+      {/* Section 2 — Why Sponsorship Matters */}
+      <SectionWrapper background="surface" className="py-16">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2 items-center max-w-6xl mx-auto">
+          <div className="grid gap-14 lg:grid-cols-2 items-center">
             <div>
-              <span className="text-sm font-bold uppercase tracking-wider text-primary mb-2 block">Sponsor Positioning</span>
-              <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-6">
-                This Is Not Traditional Advertising
+              <div className="text-xs font-bold uppercase tracking-wider text-text-secondary mb-3.5">Why Sponsorship Matters</div>
+              <h2 className="font-display text-2xl md:text-3xl font-extrabold text-text-primary mb-4 leading-tight">
+                This Is Local Impact People See.
               </h2>
-              <p className="text-lg text-text-secondary leading-relaxed">
-                Sponsors help support tools and infrastructure that improve animal welfare operations, pet protection, and reunification efforts within their communities and regions. Sponsor presence is visible without feeling like advertising.
+              <p className="text-text-secondary text-[15.5px] leading-relaxed mb-4">
+                Animal welfare teams need more than awareness. They need working infrastructure.
+              </p>
+              <p className="text-text-secondary text-[15.5px] leading-relaxed">
+                When sponsors support RescueNet360, they help fund the systems that move information faster, strengthen reunification, support shelters and rescues, and give communities a better way to respond when animals are lost, displaced, or at risk.
               </p>
             </div>
-            <div className="dark bg-bg p-8 md:p-10 rounded-2xl text-text-primary shadow-xl border border-separator">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center p-2 shadow-sm">
-                  <img src="/images/icons/shield-logo-white.svg" alt="RescueNet360 Shield Logo" className="w-8 h-8 object-contain" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl text-white">Community-First Integration</h3>
-                  <p className="text-text-secondary text-sm font-medium">Visible, ethical brand alignment</p>
-                </div>
-              </div>
-              <p className="text-text-secondary leading-relaxed text-sm">
-                Instead of intrusive banners or generic ad placements, sponsors are recognized as essential underwriters of the life-saving operational tools used daily by local shelters, rescues, and pet families.
-              </p>
+            <div className="h-56 rounded-2xl bg-secondary-soft flex items-center justify-center text-primary">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="8" r="3"></circle><path d="M2 20c0-3 3-5 6-5s6 2 6 5M10 20c0-3 3-5 6-5s6 2 6 5"></path></svg>
             </div>
           </div>
         </Container>
       </SectionWrapper>
 
       {/* Section 3 — Regional Model */}
-      <SectionWrapper background="surface-muted" className="py-20">
+      <SectionWrapper background="transparent" className="py-16" style={{ backgroundColor: 'rgb(var(--color-secondary-soft))' }}>
         <Container>
-          <div className="w-full text-center">
-            <span className="text-sm font-bold uppercase tracking-wider text-secondary mb-2 block">Regional Funding Concept</span>
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-6">
-              Your Dollars Work Where Animals Live
-            </h2>
-            <p className="text-lg text-text-secondary leading-relaxed mb-10">
-              When a sponsor funds a region, that investment directly supports the shelters, rescues, and pet families in that specific geography. Shelter directors in your community know your name. Pet owners registering their animals in your region see your organization as part of the infrastructure keeping them safe. This is local investment with visible, verifiable impact.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                <div className="text-primary font-extrabold text-2xl mb-2">Local Impact</div>
-                <p className="text-sm text-text-muted leading-relaxed">Direct support for shelters and rescues operating in your exact geographical footprint.</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                <div className="text-primary font-extrabold text-2xl mb-2">Visible Goodwill</div>
-                <p className="text-sm text-text-muted leading-relaxed">Pet owners see your organization as a vital pillar keeping their pets protected.</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
-                <div className="text-primary font-extrabold text-2xl mb-2">Zero Shelter Cost</div>
-                <p className="text-sm text-text-muted leading-relaxed">Your underwriting ensures shelters and rescues never have to pay out of their own limited budgets.</p>
-              </div>
+          <div className="grid gap-14 lg:grid-cols-2 items-center">
+            <div className="h-56 rounded-2xl bg-white flex items-center justify-center text-primary order-2 lg:order-1">
+              <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 21s7-7.5 7-12a7 7 0 10-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="text-xs font-bold uppercase tracking-wider text-secondary mb-3.5">Regional Model</div>
+              <h2 className="font-display text-2xl md:text-3xl font-extrabold text-text-primary mb-4 leading-tight">
+                Your Support Works Where Animals Live.
+              </h2>
+              <p className="text-text-secondary text-[15.5px] leading-relaxed mb-4">
+                RescueNet360 is built around regional deployment. A regional sponsor helps bring the network to a specific community, county, metro area, or service region.
+              </p>
+              <p className="text-text-secondary text-[15.5px] leading-relaxed">
+                This gives sponsors visible local impact tied to real animal welfare outcomes.
+              </p>
             </div>
           </div>
         </Container>
       </SectionWrapper>
 
       {/* Section 4 — Sponsorship Options */}
-      <SectionWrapper background="surface" className="py-20">
+      <SectionWrapper background="surface" className="py-16">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-extrabold text-text-primary mb-4">
-              Ways to Get Involved
-            </h2>
-            <p className="text-text-secondary text-lg">
-              Explore how your organization can partner with RescueNet360 to build sustainable animal welfare infrastructure.
-            </p>
-          </div>
+          <div className="text-xs font-bold uppercase tracking-wider text-primary mb-3.5">Ways to Get Involved</div>
+          <h2 className="font-display text-2xl md:text-3xl font-extrabold text-text-primary mb-8 leading-tight">
+            Sponsorship Options
+          </h2>
 
-          <ContentGrid columns={4} className="max-w-6xl mx-auto">
-            <div className="card card-comfortable border border-slate-200 hover:border-primary/50 transition-all shadow-sm hover:shadow-md flex flex-col">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold mb-4">1</div>
-              <h3 className="text-lg font-bold mb-2 text-text-primary">Regional infrastructure underwriting</h3>
-              <p className="text-text-muted text-sm leading-relaxed mt-auto">
-                Fund the core operational platform across an entire city, county, or multi-state region.
+          <ContentGrid columns={3} className="max-w-6xl mx-auto">
+            <div className="border border-secondary/20 rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-2xl bg-secondary-soft flex items-center justify-center mb-4 text-primary">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"></path><path d="M9 4v14M15 6v14"></path></svg>
+              </div>
+              <h3 className="font-display font-extrabold text-lg mb-2.5 text-text-primary">Regional network underwriting</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Help launch RescueNet360 in a specific region.
               </p>
             </div>
 
-            <div className="card card-comfortable border border-slate-200 hover:border-primary/50 transition-all shadow-sm hover:shadow-md flex flex-col">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold mb-4">2</div>
-              <h3 className="text-lg font-bold mb-2 text-text-primary">Shelter and rescue sponsorship programs</h3>
-              <p className="text-text-muted text-sm leading-relaxed mt-auto">
-                Directly subsidize onboarding, training, and hardware tools for designated local rescue teams.
+            <div className="border border-secondary/20 rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-2xl bg-secondary-soft flex items-center justify-center mb-4 text-primary">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 11l9-8 9 8"></path><path d="M5 10v10h14V10"></path></svg>
+              </div>
+              <h3 className="font-display font-extrabold text-lg mb-2.5 text-text-primary">Shelter support sponsorship</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Help fund access, onboarding, and operational support for shelter partners.
               </p>
             </div>
 
-            <div className="card card-comfortable border border-slate-200 hover:border-primary/50 transition-all shadow-sm hover:shadow-md flex flex-col">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold mb-4">3</div>
-              <h3 className="text-lg font-bold mb-2 text-text-primary">Community pet protection initiatives</h3>
-              <p className="text-text-muted text-sm leading-relaxed mt-auto">
-                Support public microchip scans, QR identity tag distribution, and lost pet alert networks.
+            <div className="border border-secondary/20 rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-2xl bg-secondary-soft flex items-center justify-center mb-4 text-primary">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.4-9.5 9-9.5 9z"></path></svg>
+              </div>
+              <h3 className="font-display font-extrabold text-lg mb-2.5 text-text-primary">Rescue support sponsorship</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Help keep RescueNet360 free for rescues and support better placement coordination.
               </p>
             </div>
 
-            <div className="card card-comfortable border border-slate-200 hover:border-primary/50 transition-all shadow-sm hover:shadow-md flex flex-col">
-              <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold mb-4">4</div>
-              <h3 className="text-lg font-bold mb-2 text-text-primary">Event and awareness partnerships</h3>
-              <p className="text-text-muted text-sm leading-relaxed mt-auto">
-                Collaborate on community adoption drives, reunification education, and welfare awareness campaigns.
+            <div className="border border-secondary/20 rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-2xl bg-secondary-soft flex items-center justify-center mb-4 text-primary">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-3z"></path></svg>
+              </div>
+              <h3 className="font-display font-extrabold text-lg mb-2.5 text-text-primary">Community pet protection</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Support pet registration, lost and found awareness, disaster readiness, and public education.
+              </p>
+            </div>
+
+            <div className="border border-secondary/20 rounded-2xl p-8">
+              <div className="w-12 h-12 rounded-2xl bg-secondary-soft flex items-center justify-center mb-4 text-primary">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 9h18M8 3v4M16 3v4"></path></svg>
+              </div>
+              <h3 className="font-display font-extrabold text-lg mb-2.5 text-text-primary">Event and awareness partnerships</h3>
+              <p className="text-sm text-text-secondary leading-relaxed">
+                Partner on adoption events, registration drives, shelter campaigns, and community outreach.
               </p>
             </div>
           </ContentGrid>
@@ -147,16 +145,16 @@ export const SponsorsPage = () => {
       </SectionWrapper>
 
       {/* Section 5 — Contact CTA */}
-      <SectionWrapper background="surface" className="py-20 bg-gradient-to-t from-surface to-bg text-center border-t border-separator" border={false}>
+      <SectionWrapper background="transparent" className="py-20 text-center bg-gradient-to-br from-secondary to-secondary-deep" border={false}>
         <Container size="narrow">
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold mb-6 text-text-primary">
-            Interested in Supporting RescueNet360?
+          <h2 className="font-display text-2xl md:text-3xl font-extrabold mb-4 text-white">
+            Ready to Bring RescueNet360 to Your Region?
           </h2>
-          <p className="text-text-secondary text-lg mb-8 max-w-2xl mx-auto">
-            Contact us to discuss regional support, underwriting models, and how your organization can become part of the infrastructure protecting animals in your community.
+          <p className="text-white/90 text-[15.5px] mb-8 max-w-xl mx-auto leading-relaxed">
+            Let&apos;s talk about your community, your goals, and the kind of impact your organization wants to support.
           </p>
-          <Link to="/contact" className="btn btn-primary min-h-[56px] px-10 text-lg inline-flex items-center justify-center font-bold shadow-elevated hover:scale-105 transition-transform">
-            Contact Us About Sponsorship Opportunities →
+          <Link to="/contact" className="btn bg-white text-secondary hover:bg-white/90 min-h-[52px] px-8 text-base inline-flex items-center justify-center font-bold">
+            Talk to Our Sponsorship Team
           </Link>
         </Container>
       </SectionWrapper>

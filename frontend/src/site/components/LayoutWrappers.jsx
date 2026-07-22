@@ -6,9 +6,10 @@ export const SectionWrapper = ({
   density = 'standard', // 'standard' | 'compact'
   background = 'surface', // 'surface' | 'elevated' | 'interactive' | 'dark' | 'brand' | 'transparent'
   border = false,
+  style,
 }) => {
   const paddingClass = density === 'compact' ? 'section-compact' : 'section-comfortable';
-  
+
   let bgClass = 'bg-surface';
   if (background === 'elevated') bgClass = 'bg-surface-elevated';
   if (background === 'interactive') bgClass = 'bg-surface-muted';
@@ -21,9 +22,10 @@ export const SectionWrapper = ({
   const darkContextClass = background === 'dark' ? 'dark' : '';
 
   return (
-    <section 
+    <section
       id={id}
       className={`${paddingClass} ${bgClass} ${borderClass} ${darkContextClass} transition-colors duration-standard ${className}`}
+      style={style}
     >
       {children}
     </section>

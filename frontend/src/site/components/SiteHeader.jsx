@@ -8,7 +8,7 @@ export const SiteHeader = () => {
   const NAV_LINKS = [
     { to: '/shelters-rescues', label: 'Shelters & Rescues' },
     { to: '/pet-owners', label: 'Pet Owners' },
-    { to: '/sponsorship', label: 'Sponsors & Partners' },
+    { to: '/sponsorship', label: 'Sponsors' },
     { to: '/about', label: 'About' },
   ];
 
@@ -24,19 +24,16 @@ export const SiteHeader = () => {
             className="h-10 w-auto"
             onError={(e) => { e.target.style.display = 'none'; }}
           />
-          <div className="flex flex-col">
-            <span className="text-xl font-extrabold font-display leading-tight">
-              <span className="text-primary">Rescue</span><span className="text-secondary">Net</span><span className="text-slate-800">360</span>
-            </span>
-            <span className="text-[10px] uppercase tracking-wider font-bold text-text-muted leading-tight hidden sm:block">Connect. Protect. Save Lives.</span>
-          </div>
+          <span className="text-xl font-extrabold font-display leading-tight">
+            <span className="text-primary">Rescue</span><span className="text-secondary">Net</span><span className="text-slate-800">360</span>
+          </span>
         </Link>
-        
+
         <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
           {NAV_LINKS.map((item) => (
-            <Link 
-              key={item.to} 
-              to={item.to} 
+            <Link
+              key={item.to}
+              to={item.to}
               className={`text-sm font-bold transition-colors hover:text-primary py-2 ${isActive(item.to) ? 'text-primary border-b-2 border-primary' : 'text-slate-600'}`}
             >
               {item.label}
@@ -45,6 +42,12 @@ export const SiteHeader = () => {
         </nav>
 
         <div className="flex items-center gap-3">
+          <Link
+            to="/shelters-rescues#apply"
+            className="hidden sm:inline-flex btn btn-primary text-xs md:text-sm py-2.5 px-5 whitespace-nowrap"
+          >
+            Apply to Be a Pilot Partner
+          </Link>
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen((open) => !open)}
